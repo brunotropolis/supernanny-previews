@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Clube do Bebê | Aula gratuita</title>
+<meta name="theme-color" content="#0B0B0F">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,800;0,900;1,800;1,900&family=Nunito+Sans:wght@400;600;700&display=swap">
+<script src="../../assets/black.js" defer></script>
+<style>
+:root{--bg:#0B0B0F;--card:#16161D;--line:#2A2A35;--txt:#F4F4F7;--mut:#CFCFDA;
+  --cor:#FFC928;--cor2:#FFE07A;--glow:255,201,40;--btn:#1A1300;
+  --fd:"Montserrat",system-ui,sans-serif;--fb:"Nunito Sans",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:var(--fb);font-size:16px;line-height:1.55;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--fd);line-height:1.12;text-wrap:balance}
+em{font-style:normal;color:var(--cor)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.barra{position:sticky;top:0;z-index:20;background:var(--cor);color:var(--btn);padding:7px 10px;padding-top:calc(7px + env(safe-area-inset-top));text-align:center;font-family:var(--fd);font-weight:800;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.barra .cd{display:inline-flex;gap:8px;font-variant-numeric:tabular-nums}.barra .cd b{font-size:1.08rem}
+.barra .hoje{display:none}.black-hoje .barra .antes{display:none}.black-hoje .barra .hoje{display:inline}
+.hero{padding-block:22px 40px;background:radial-gradient(70% 45% at 50% 18%,rgba(var(--glow),.28),transparent 70%)}
+.logo{text-align:center;display:grid;justify-items:center;gap:2px;margin-bottom:16px}
+.logo .c{font-family:var(--fd);font-weight:900;font-size:.82rem;letter-spacing:.42em;text-transform:uppercase;color:var(--mut);padding-left:.42em}
+.logo .b{font-family:var(--fd);font-weight:900;font-style:italic;font-size:clamp(2.5rem,12vw,3.6rem);line-height:.95;letter-spacing:-.02em;color:var(--txt)}
+.logo .b span{color:var(--cor)}
+.logo .na{margin-top:8px;font-family:var(--fd);font-weight:800;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--btn);background:var(--cor);padding:5px 12px 5px 14px;border-radius:999px}
+.tag{display:block;text-align:center;font-family:var(--fd);font-weight:800;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cor);margin-bottom:10px}
+h1{font-size:clamp(1.6rem,6.4vw,2.2rem);font-weight:900;text-align:center;margin-bottom:12px}
+.sub{text-align:center;color:var(--mut);font-size:1.02rem;margin-bottom:22px}
+.lista{list-style:none;padding:0;display:grid;gap:10px;margin-top:22px}
+.lista-t{font-family:var(--fd);font-weight:800;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cor);text-align:center;margin-top:26px}
+.lista li{display:grid;grid-template-columns:30px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.lista .ck{width:30px;height:30px;border-radius:50%;background:var(--cor);color:var(--btn);display:grid;place-items:center;font-weight:900}
+.lista b{display:block;font-family:var(--fd);font-weight:800;font-size:.95rem}
+.lista span{font-size:.86rem;color:var(--mut)}
+.lista .mais{grid-template-columns:30px 1fr;border-style:dashed;border-color:rgba(var(--glow),.55)}
+.lista .mais .ck{background:transparent;color:var(--cor);border:2px solid var(--cor)}
+.form{background:#121218;border:1px solid rgba(var(--glow),.45);border-radius:20px;padding:22px;display:grid;gap:12px;box-shadow:0 25px 60px -28px rgba(var(--glow),.75)}
+.form h3{font-size:1.02rem;font-weight:800;text-align:center}
+.form .data{text-align:center;font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.form .data b{color:var(--cor)}
+.form input{width:100%;font:inherit;font-size:16px;padding:15px 18px;border-radius:999px;border:0;background:#fff;color:#111;outline:none}
+.form input:focus{box-shadow:0 0 0 3px var(--cor)}
+.form button{white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:.98rem;text-transform:uppercase;color:var(--btn);background:linear-gradient(180deg,var(--cor2),var(--cor));border:0;border-radius:999px;padding:17px;cursor:pointer;box-shadow:0 10px 30px -8px rgba(var(--glow),.85);transition:transform .15s}
+.form button:active{transform:scale(.98)}
+.form button.enviando{opacity:.7}
+.form .micro{text-align:center;font-size:.8rem;color:var(--mut)}
+.form .erro{color:var(--cor2);font-size:.86rem;text-align:center}
+.hp{position:absolute;left:-9999px}
+.day{padding-block:44px 30px}
+.day .in{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}
+.day img{width:110px;height:110px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--cor)}
+.day .eye{font-family:var(--fd);font-weight:800;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cor)}
+.day h2{font-size:1.25rem;font-weight:900;margin:2px 0 6px}
+.day p{font-size:.88rem;color:var(--mut)}
+.final{padding-block:20px 48px;text-align:center}
+.final h2{font-size:1.35rem;font-weight:900;margin-bottom:16px}
+.final h2 b{color:var(--cor)}
+.final .form{text-align:left}
+footer{padding:22px 18px calc(22px + env(safe-area-inset-bottom));text-align:center;font-size:.76rem;color:var(--mut);border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="barra" data-contador>
+  <span class="antes">A próxima Black do Clube começa em:</span><span class="hoje">A Black do Clube é hoje! Faltam:</span>
+  <span class="cd"><span><b data-d>00</b>d</span><span><b data-h>00</b>h</span><span><b data-m>00</b>min</span><span><b data-s>00</b>seg</span></span>
+</div>
+<header class="hero">
+  <div class="wrap">
+    <div class="logo"><span class="c">Clube do</span><span class="b">Bebê<span>.</span></span><span class="na">na Black</span></div>
+    <span class="tag">Aula gratuita</span>
+    <h1>Aula de <em>autonomia de sono</em>: ajude seu bebê a adormecer sozinho, com carinho</h1>
+    <p class="sub">Entre no Clube do Bebê, assista à aula da Day sobre autonomia de sono e participe da nossa Black toda terça.</p>
+    <form class="form" data-lead="clube-do-bebe" data-versao="autonomia-do-sono" data-destino="../entrando/?tema=amarelo" novalidate>
+        <h3>Entre no grupo do Clube do Bebê</h3>
+        <span class="data">Black do Clube: <b data-data-black>terça, 10/11</b></span>
+        <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input id="nome1" name="nome" placeholder="Seu nome" autocomplete="given-name" required aria-label="Seu nome">
+        <input id="whats1" name="whatsapp" placeholder="WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required aria-label="WhatsApp com DDD">
+        <span class="erro" role="alert"></span>
+        <button type="submit">Quero entrar no Clube →</button>
+        <span class="micro">🔒 É grátis. O conteúdo fica fixado no grupo.</span>
+      </form>
+    <p class="lista-t">O que você recebe no grupo</p>
+    <ul class="lista"><li><span class="ck">✓</span><div><b>Aula de autonomia de sono</b><span>Como ajudar o bebê a pegar no sono sozinho no berço, respeitando o tempo dele.</span></div></li><li class="mais"><span class="ck">%</span><div><b>Black do Clube toda terça</b><span>Condições especiais nos cursos de sono e amamentação da Day, só pra quem está no grupo.</span></div></li></ul>
+  </div>
+</header>
+<section class="day">
+  <div class="wrap"><div class="in">
+    <img src="../../assets/day-clube.webp" alt="Dayane Dos Anjos" width="110" height="110" loading="lazy">
+    <div><span class="eye">Quem está no Clube</span><h2>Dayane Dos Anjos</h2><p>Mãe, consultora de sono e amamentação, com mais de 21 mil alunas que aprenderam com ela a cuidar do bebê com leveza.</p></div>
+  </div></div>
+</section>
+<section class="final">
+  <div class="wrap">
+    <h2>A próxima Black do Clube é <b data-data-black>terça, 10/11</b></h2>
+    <form class="form" data-lead="clube-do-bebe" data-versao="autonomia-do-sono-rodape" data-destino="../entrando/?tema=amarelo" novalidate>
+        <h3>Entre no grupo do Clube do Bebê</h3>
+        <span class="data">Black do Clube: <b data-data-black>terça, 10/11</b></span>
+        <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input id="nome2" name="nome" placeholder="Seu nome" autocomplete="given-name" required aria-label="Seu nome">
+        <input id="whats2" name="whatsapp" placeholder="WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required aria-label="WhatsApp com DDD">
+        <span class="erro" role="alert"></span>
+        <button type="submit">Quero entrar no Clube →</button>
+        <span class="micro">🔒 É grátis. O conteúdo fica fixado no grupo.</span>
+      </form>
+  </div>
+</section>
+<footer>Clube do Bebê · Manual do Recém-Nascido · Dayane Dos Anjos</footer>
+</body>
+</html>

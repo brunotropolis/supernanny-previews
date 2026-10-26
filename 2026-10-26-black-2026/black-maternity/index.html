@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Black Maternity 2026 | Grupo VIP de Gestantes</title>
+<meta name="description" content="Entre no grupo VIP de gestantes da Day: aula exclusiva e o maior combo do Manual do Recém-Nascido.">
+<meta name="theme-color" content="#0C0710">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;0,900;1,800&family=Nunito+Sans:wght@400;600;700&display=swap">
+<style>
+:root{
+  --bg:#0C0710; --bg2:#150B1B; --card:#1B0F22; --line:#3A2346;
+  --mag:#E21F82; --mag2:#FF4FA6; --roxo:#6D2A88; --txt:#F6EEF7; --mut:#D6C8DA;
+  --verde:#20C25B; --verde2:#14A048;
+  --fd:"Montserrat",system-ui,sans-serif; --fb:"Nunito Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:var(--fb);font-size:16px;line-height:1.55;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
+img{max-width:100%;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+h1,h2,h3{font-family:var(--fd);line-height:1.12;text-wrap:balance}
+.mag{color:var(--mag2)}
+
+/* barra do contador */
+.barra{position:sticky;top:0;z-index:20;background:linear-gradient(90deg,var(--roxo),var(--mag));padding:7px 10px;padding-top:calc(7px + env(safe-area-inset-top));text-align:center;font-family:var(--fd);font-weight:800;font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
+.barra .cd{display:inline-flex;gap:8px;font-variant-numeric:tabular-nums}
+.barra .cd b{font-size:1.08rem}
+.barra .hoje{display:none}
+.black-hoje .barra .antes{display:none}.black-hoje .barra .hoje{display:inline}
+
+/* hero */
+.hero{position:relative;padding-block:34px 56px;background:radial-gradient(60% 50% at 25% 35%,rgba(226,31,130,.28),transparent 70%),radial-gradient(50% 50% at 90% 10%,rgba(109,42,136,.35),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero{padding-top:22px}.hero-grid{grid-template-columns:1fr;gap:26px}.hero-img{order:2;max-width:300px}}
+.hero-img{border-radius:22px;overflow:hidden;box-shadow:0 30px 80px -30px rgba(226,31,130,.6);max-width:460px;margin:0 auto}
+.hero h1{font-size:clamp(1.75rem,4.6vw,2.7rem);font-weight:900;margin-bottom:12px}
+.hero .sub{color:var(--mut);font-size:1.02rem;margin-bottom:20px}
+.mini-logo{display:none;font-family:var(--fd);font-weight:900;font-size:1.9rem;line-height:.9;letter-spacing:-.01em;margin-bottom:14px}
+.mini-logo small{display:block;font-size:.7rem;letter-spacing:.3em;color:var(--mag2);margin-top:6px}
+@media(max-width:860px){.mini-logo{display:block;text-align:center}.hero h1{text-align:center;font-size:1.6rem}.hero .sub{text-align:center}}
+.hero .sub b{color:var(--txt)}
+
+/* formulário */
+.form{background:linear-gradient(180deg,#24122D,#190D20);border:1px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:12px;box-shadow:0 0 0 1px rgba(226,31,130,.25),0 25px 60px -25px rgba(226,31,130,.55)}
+.form h3{font-size:1.02rem;font-weight:800;text-align:center}
+.form .data{text-align:center;font-family:var(--fd);font-weight:800;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mag2)}
+.form input{width:100%;font:inherit;font-size:16px;padding:15px 18px;border-radius:999px;border:0;background:#fff;color:#1d1020;outline:none}
+.form input:focus{box-shadow:0 0 0 3px var(--mag2)}
+.form button{white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.84rem,3.6vw,.98rem);letter-spacing:.02em;text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border:0;border-radius:999px;padding:17px 18px;cursor:pointer;box-shadow:0 10px 30px -8px rgba(32,194,91,.8);transition:transform .15s}
+.form button:active{transform:scale(.98)}
+.form button.enviando{opacity:.7}
+.form .micro{text-align:center;font-size:.8rem;color:var(--mut)}
+.form .erro{color:#FF8FB8;font-size:.86rem;text-align:center;min-height:0}
+.hp{position:absolute;left:-9999px}
+
+section{padding-block:64px}
+.titulo{text-align:center;display:grid;gap:10px;margin-bottom:34px}
+.eyebrow{font-family:var(--fd);font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mag2)}
+.titulo h2{font-size:clamp(1.55rem,4vw,2.3rem);font-weight:900}
+.titulo p{color:var(--mut);max-width:58ch;margin:0 auto}
+
+/* aula */
+.aula{background:var(--bg2)}
+.aula-grid{display:grid;grid-template-columns:420px 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.aula-grid{grid-template-columns:1fr}}
+.aula-img{border-radius:20px;overflow:hidden;max-width:420px;margin:0 auto}
+.aula .tag{display:inline-block;background:var(--mag);color:#fff;font-family:var(--fd);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:14px}
+.aula h2{font-size:clamp(1.4rem,3.6vw,2rem);font-weight:900;margin-bottom:12px}
+.aula p{color:var(--mut)}
+.aula ul{list-style:none;padding:0;display:grid;gap:10px;margin-top:18px}
+.aula li{display:flex;gap:10px;align-items:flex-start}
+.aula li::before{content:"";flex:0 0 10px;height:10px;margin-top:8px;border-radius:50%;background:var(--mag2);box-shadow:0 0 12px var(--mag2)}
+
+/* cursos */
+.cursos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.cursos{grid-template-columns:repeat(2,1fr);gap:12px}}
+.curso{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;display:grid;gap:10px;align-content:start}
+.curso img{border-radius:10px;aspect-ratio:7/10;object-fit:cover;width:100%}
+.curso h3{font-size:.92rem;font-weight:800}
+.curso p{font-size:.82rem;color:var(--mut);line-height:1.45}
+.curso .v{font-family:var(--fd);font-weight:800;font-size:.85rem;color:var(--mut);text-decoration:line-through;text-decoration-color:var(--mag)}
+.ebooks{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:22px}
+@media(max-width:860px){.ebooks{grid-template-columns:repeat(3,1fr)}}
+.ebook{display:grid;gap:6px;text-align:center}
+.ebook img{border-radius:8px;aspect-ratio:7/10;object-fit:cover;width:100%}
+.ebook span{font-size:.75rem;color:var(--mut);line-height:1.3}
+.sub-h{font-family:var(--fd);font-weight:800;font-size:1.05rem;margin:42px 0 6px;text-align:center}
+
+/* bônus */
+.bonus{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:760px){.bonus{grid-template-columns:1fr}}
+.bonus div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:10px;text-align:center}
+.bonus img{border-radius:12px;max-width:240px;margin:0 auto}
+.bonus h3{font-size:1rem;font-weight:800}
+.bonus p{font-size:.88rem;color:var(--mut)}
+
+/* preço */
+.preco{background:radial-gradient(70% 60% at 50% 0%,rgba(226,31,130,.25),transparent 70%),var(--bg2)}
+.caixa{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 22px;display:grid;gap:4px}
+.linha{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;padding:7px 0;border-bottom:1px dashed var(--line);color:var(--mut)}
+.linha b{font-family:var(--fd);color:var(--txt);font-weight:700;white-space:nowrap}
+.total{text-align:center;margin-top:22px;display:grid;gap:6px}
+.total .de{font-family:var(--fd);font-weight:900;font-size:clamp(1.6rem,6vw,2.4rem);color:var(--mut);text-decoration:line-through;text-decoration-color:var(--mag);text-decoration-thickness:3px}
+.total .seta{color:var(--mag2);font-size:1.4rem}
+.total .na{font-family:var(--fd);font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mag2)}
+.total .por{font-family:var(--fd);font-weight:900;font-size:clamp(2.6rem,11vw,4.2rem);line-height:1;background:linear-gradient(180deg,#fff,var(--mag2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.total .vista{font-family:var(--fd);font-weight:700;color:var(--txt)}
+.total .garantia{font-size:.86rem;color:var(--mut);margin-top:6px}
+.cta-c{text-align:center;margin-top:28px}
+.cta{display:inline-block;font-family:var(--fd);font-weight:800;font-size:1rem;text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border-radius:999px;padding:18px 30px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(32,194,91,.8)}
+
+/* day */
+.day-grid{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:center}
+@media(max-width:860px){.day-grid{grid-template-columns:1fr;text-align:center}}
+.day-img{aspect-ratio:1;border-radius:50%;overflow:hidden;max-width:300px;margin:0 auto;box-shadow:0 0 0 4px var(--mag),0 0 60px rgba(226,31,130,.45)}
+.day h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;margin-bottom:12px}
+.day p{color:var(--mut);margin-bottom:12px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.nums div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+.nums b{display:block;font-family:var(--fd);font-weight:900;font-size:1.3rem;color:var(--mag2)}
+.nums span{font-size:.76rem;color:var(--mut)}
+
+.final{text-align:center;background:radial-gradient(60% 70% at 50% 100%,rgba(226,31,130,.3),transparent 70%)}
+.final h2{font-size:clamp(1.5rem,4.4vw,2.4rem);font-weight:900;margin-bottom:22px}
+.final .form{max-width:460px;margin:0 auto;text-align:left}
+footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:center;font-size:.78rem;color:var(--mut);border-top:1px solid var(--line)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<script src="../assets/black.js" defer></script>
+</head>
+<body>
+
+<div class="barra" data-contador>
+  <span class="antes">A próxima Black Maternity começa em:</span>
+  <span class="hoje">A Black Maternity é hoje! Faltam:</span>
+  <span class="cd"><span><b data-d>00</b>d</span><span><b data-h>00</b>h</span><span><b data-m>00</b>min</span><span><b data-s>00</b>seg</span></span>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-img"><img src="../assets/bm-hero.webp" alt="Dayane Dos Anjos na Black Maternity" width="720" height="720"></div>
+    <div>
+      <div class="mini-logo">BLACK<br>MATERNITY<small>GRUPO VIP DE GESTANTES</small></div>
+      <h1>Chegou a <span class="mag">Black Maternity</span> do Manual do Recém-Nascido</h1>
+      <p class="sub">Entre no <b>grupo VIP de gestantes</b>, assista à <b>aula exclusiva</b> da Day e seja a primeira a ver a condição do maior combo da história: <b>8 cursos, 6 ebooks e 1 ano de acompanhamento</b>.</p>
+      <form class="form" data-lead="black-maternity" data-destino="entrando/" novalidate>
+        <h3>Entre no grupo VIP de WhatsApp</h3>
+        <span class="data" data-data-black>terça, 10/11</span>
+        <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="hp" for="nome1">Nome</label>
+        <input id="nome1" name="nome" placeholder="Seu nome" autocomplete="given-name" required>
+        <input id="whats1" name="whatsapp" placeholder="WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required>
+        <span class="erro" role="alert"></span>
+        <button type="submit">Quero entrar no grupo VIP →</button>
+        <span class="micro">🔒 Entrada gratuita. Seus dados ficam só com a gente.</span>
+      </form>
+    </div>
+  </div>
+</header>
+
+<section class="aula">
+  <div class="wrap aula-grid">
+    <div class="aula-img"><img src="../assets/bm-aula.webp" alt="Day com presentes da Black Maternity" width="520" height="520" loading="lazy"></div>
+    <div>
+      <span class="tag">Aula exclusiva do grupo</span>
+      <h2>Os 5 primeiros desafios que toda mãe enfrenta e como se preparar ainda na gestação</h2>
+      <p>A aula fica disponível só pra quem está dentro do grupo VIP. É a Day explicando, com calma, o que costuma pegar as mães de surpresa nas primeiras semanas e como chegar nesse momento mais tranquila.</p>
+      <ul>
+        <li>Aula gravada, pra assistir quando der</li>
+        <li>Liberada dentro do grupo da sua semana</li>
+        <li>No mesmo grupo você vê a oferta da Black antes de todo mundo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="titulo">
+      <span class="eyebrow">Tudo o que está dentro da Black Maternity</span>
+      <h2>8 cursos completos, do parto ao primeiro ano</h2>
+    </div>
+    <div class="cursos">
+      <div class="curso"><img src="../assets/plano-de-parto.webp" alt="" loading="lazy"><h3>Plano de Parto</h3><p>Aprenda com a Day a montar seu plano e entenda cada decisão.</p><span class="v">R$ 67</span></div>
+      <div class="curso"><img src="../assets/dia-do-parto.webp" alt="" loading="lazy"><h3>O Dia do Parto</h3><p>Cada detalhe do grande dia, pra viver esse momento com segurança.</p><span class="v">R$ 67</span></div>
+      <div class="curso"><img src="../assets/bebe-calminho.webp" alt="" loading="lazy"><h3>Bebê Calminho</h3><p>Os cuidados que realmente importam nos primeiros dias.</p><span class="v">R$ 47</span></div>
+      <div class="curso"><img src="../assets/primeiros-socorros.webp" alt="" loading="lazy"><h3>Primeiros Socorros</h3><p>Como agir numa emergência, trocando o medo por preparo.</p><span class="v">R$ 97</span></div>
+      <div class="curso"><img src="../assets/tecnica-dos-anjos.webp" alt="" loading="lazy"><h3>Técnica dos Anjos</h3><p>O passo a passo da pega certa, pra amamentar com conforto e confiança.</p><span class="v">R$ 197</span></div>
+      <div class="curso"><img src="../assets/manual-complemento.webp" alt="" loading="lazy"><h3>Manual do Complemento</h3><p>Retirar, armazenar e oferecer o leite com tranquilidade.</p><span class="v">R$ 127</span></div>
+      <div class="curso"><img src="../assets/dream-baby.webp" alt="" loading="lazy"><h3>Método Dream Baby</h3><p>Sono tranquilo desde os primeiros dias, no berço e sem choro.</p><span class="v">R$ 197</span></div>
+      <div class="curso"><img src="../assets/rotina.webp" alt="" loading="lazy"><h3>Rotina do Bebê</h3><p>O dia do bebê organizado entre sono, mamadas e brincadeiras.</p><span class="v">R$ 97</span></div>
+    </div>
+    <p class="sub-h">E mais 6 ebooks, do enxoval à introdução alimentar</p>
+    <div class="ebooks">
+      <div class="ebook"><img src="../assets/eb-vestir.webp" alt="" loading="lazy"><span>Como Vestir o Bebê</span></div>
+      <div class="ebook"><img src="../assets/eb-sonecas.webp" alt="" loading="lazy"><span>Entre Sonecas</span></div>
+      <div class="ebook"><img src="../assets/eb-rotina.webp" alt="" loading="lazy"><span>Rotina do Bebê</span></div>
+      <div class="ebook"><img src="../assets/eb-alta.webp" alt="" loading="lazy"><span>Alta Produção de Leite</span></div>
+      <div class="ebook"><img src="../assets/eb-introducao.webp" alt="" loading="lazy"><span>Introdução Alimentar</span></div>
+      <div class="ebook"><img src="../assets/eb-enxoval.webp" alt="" loading="lazy"><span>Enxoval Descomplicado</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="titulo"><span class="eyebrow">E você não fica sozinha</span><h2>Bônus da Black Maternity</h2></div>
+    <div class="bonus">
+      <div><img src="../assets/bm-12meses.webp" alt="" loading="lazy"><h3>1 ano de acompanhamento</h3><p>Apoio individual no seu WhatsApp com a equipe da Day, e você escolhe quando começar.</p></div>
+      <div><img src="../assets/bm-comunidade.webp" alt="" loading="lazy"><h3>Grupo de mães</h3><p>Troca de experiências reais, da gestação aos primeiros meses do bebê.</p></div>
+      <div><img src="../assets/bm-cupons.webp" alt="" loading="lazy"><h3>Grupo de cupons</h3><p>Descontos selecionados em fraldas, roupinhas, higiene e enxoval.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="preco">
+  <div class="wrap">
+    <div class="titulo"><span class="eyebrow">Pagando tudo separado</span><h2>Quanto custaria fora da Black</h2></div>
+    <div class="caixa">
+      <div class="linha"><span>Plano de Parto</span><b>R$ 67</b></div>
+      <div class="linha"><span>O Dia do Parto</span><b>R$ 67</b></div>
+      <div class="linha"><span>Bebê Calminho</span><b>R$ 47</b></div>
+      <div class="linha"><span>Os Primeiros Socorros</span><b>R$ 97</b></div>
+      <div class="linha"><span>Técnica dos Anjos na Amamentação</span><b>R$ 197</b></div>
+      <div class="linha"><span>Manual do Complemento</span><b>R$ 127</b></div>
+      <div class="linha"><span>Método de Sono Dream Baby</span><b>R$ 197</b></div>
+      <div class="linha"><span>Rotina do Bebê</span><b>R$ 97</b></div>
+      <div class="linha"><span>6 ebooks (R$ 19 a R$ 59 cada)</span><b>R$ 314</b></div>
+      <div class="linha"><span>Acompanhamento por 1 ano</span><b>R$ 582</b></div>
+      <div class="total">
+        <span class="de">R$ 1.792</span>
+        <span class="seta">↓</span>
+        <span class="na">Na Black Maternity</span>
+        <span class="por">12x R$ 51,10</span>
+        <span class="vista">ou R$ 497 à vista</span>
+        <span class="garantia">7 dias de garantia. Se não for pra você, devolvemos tudo.</span>
+      </div>
+    </div>
+    <div class="cta-c"><a class="cta" href="#entrar">Quero entrar no grupo VIP →</a></div>
+  </div>
+</section>
+
+<section class="day">
+  <div class="wrap day-grid">
+    <div class="day-img"><img src="../assets/bm-day.webp" alt="Dayane Dos Anjos" width="600" height="600" loading="lazy"></div>
+    <div>
+      <span class="eyebrow">Quem está por trás da Black Maternity</span>
+      <h2>Dayane Dos Anjos</h2>
+      <p>Mãe, consultora de sono, amamentação e cuidados com o bebê. Quando se tornou mãe, descobriu o quanto esse início pode ser desafiador: o cansaço, as dúvidas e o medo de errar.</p>
+      <p>Foi aí que encontrou o propósito de transformar informação em acolhimento, pra que outras mulheres se sintam seguras e confiantes nos cuidados com o bebê.</p>
+      <div class="nums">
+        <div><b>+21 mil</b><span>alunas</span></div>
+        <div><b>+779 mil</b><span>inscritos</span></div>
+        <div><b>+586 mil</b><span>seguidores</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="entrar">
+  <div class="wrap">
+    <h2>A próxima Black Maternity é <span class="mag" data-data-black>terça, 10/11</span></h2>
+    <form class="form" data-lead="black-maternity" data-versao="rodape" data-destino="entrando/" novalidate>
+      <h3>Entre no grupo VIP de WhatsApp</h3>
+      <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input id="nome2" name="nome" placeholder="Seu nome" autocomplete="given-name" required aria-label="Seu nome">
+      <input id="whats2" name="whatsapp" placeholder="WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required aria-label="WhatsApp com DDD">
+      <span class="erro" role="alert"></span>
+      <button type="submit">Quero entrar no grupo VIP →</button>
+    </form>
+  </div>
+</section>
+
+<footer>Manual do Recém-Nascido · Dayane Dos Anjos</footer>
+</body>
+</html>
