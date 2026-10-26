@@ -11,20 +11,21 @@
 <script src="../../assets/black.js" defer></script>
 <style>
 :root{--bg:#0B0B0F;--card:#16161D;--line:#2A2A35;--txt:#F4F4F7;--mut:#CFCFDA;
-  --cor:#FF4FA3;--cor2:#FF9CCB;--glow:255,79,163;--btn:#ffffff;
+  --cor:#FF4FA3;--cor2:#FF9CCB;--glow:255,79,163;--btn:#2A0716;
   --fd:"Montserrat",system-ui,sans-serif;--fb:"Nunito Sans",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--txt);font-family:var(--fb);font-size:16px;line-height:1.55;-webkit-tap-highlight-color:transparent;overflow-x:hidden}
 img{max-width:100%;display:block}
 .wrap{max-width:560px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
-h1,h2,h3{font-family:var(--fd);line-height:1.12;text-wrap:balance}
+h1,h2,h3{font-family:var(--fd);line-height:1.15;text-wrap:balance}
 em{font-style:normal;color:var(--cor)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 <style>
 .barra{position:sticky;top:0;z-index:20;background:var(--cor);color:var(--btn);padding:7px 10px;padding-top:calc(7px + env(safe-area-inset-top));text-align:center;font-family:var(--fd);font-weight:800;font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap}
-.barra .cd{display:inline-flex;gap:8px;font-variant-numeric:tabular-nums}.barra .cd b{font-size:1.08rem}
+.barra .cd{display:inline-flex;gap:5px;font-variant-numeric:tabular-nums}
+.barra .cd>span{background:rgba(0,0,0,.14);border-radius:6px;padding:2px 7px}.barra .cd b{font-size:1.08rem}
 .barra .hoje{display:none}.black-hoje .barra .antes{display:none}.black-hoje .barra .hoje{display:inline}
 .hero{padding-block:22px 40px;background:radial-gradient(70% 45% at 50% 18%,rgba(var(--glow),.28),transparent 70%)}
 .logo{text-align:center;display:grid;justify-items:center;gap:2px;margin-bottom:16px}
@@ -41,9 +42,9 @@ h1{font-size:clamp(1.6rem,6.4vw,2.2rem);font-weight:900;text-align:center;margin
 .lista .ck{width:30px;height:30px;border-radius:50%;background:var(--cor);color:var(--btn);display:grid;place-items:center;font-weight:900}
 .lista b{display:block;font-family:var(--fd);font-weight:800;font-size:.95rem}
 .lista span{font-size:.86rem;color:var(--mut)}
-.lista .mais{grid-template-columns:30px 1fr;border-style:dashed;border-color:rgba(var(--glow),.55)}
+.lista .mais{background:rgba(var(--glow),.09);border-color:rgba(var(--glow),.4)}
 .lista .mais .ck{background:transparent;color:var(--cor);border:2px solid var(--cor)}
-.form{background:#121218;border:1px solid rgba(var(--glow),.45);border-radius:20px;padding:22px;display:grid;gap:12px;box-shadow:0 25px 60px -28px rgba(var(--glow),.75)}
+.form{background:#121218;border:1px solid rgba(var(--glow),.45);border-radius:20px;padding:24px 22px 26px;display:grid;gap:12px;box-shadow:0 25px 60px -28px rgba(var(--glow),.75)}
 .form h3{font-size:1.02rem;font-weight:800;text-align:center}
 .form .data{text-align:center;font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
 .form .data b{color:var(--cor)}
@@ -56,13 +57,13 @@ h1{font-size:clamp(1.6rem,6.4vw,2.2rem);font-weight:900;text-align:center;margin
 .form .erro{color:var(--cor2);font-size:.86rem;text-align:center}
 .hp{position:absolute;left:-9999px}
 .day{padding-block:44px 30px}
-.day .in{display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}
-.day img{width:110px;height:110px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--cor)}
+.day .in{display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px}
+.day img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:50% 15%;box-shadow:0 0 0 3px var(--cor),0 0 24px rgba(var(--glow),.35)}
 .day .eye{font-family:var(--fd);font-weight:800;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cor)}
 .day h2{font-size:1.25rem;font-weight:900;margin:2px 0 6px}
 .day p{font-size:.88rem;color:var(--mut)}
-.final{padding-block:20px 48px;text-align:center}
-.final h2{font-size:1.35rem;font-weight:900;margin-bottom:16px}
+.final{padding-block:40px 52px;text-align:center}
+.final h2{font-size:1.35rem;font-weight:900;margin-bottom:20px}
 .final h2 b{color:var(--cor)}
 .final .form{text-align:left}
 footer{padding:22px 18px calc(22px + env(safe-area-inset-bottom));text-align:center;font-size:.76rem;color:var(--mut);border-top:1px solid var(--line)}
