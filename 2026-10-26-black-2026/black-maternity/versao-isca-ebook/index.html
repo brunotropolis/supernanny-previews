@@ -43,11 +43,12 @@ h2{line-height:1.2}
 .logo-placa{position:relative;z-index:6;width:100%;margin-top:-22%}
 .logo-placa .logo-bm{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 28px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(226,31,130,.35))}
 .hero-txt>*{min-width:0;max-width:100%}
-.capa-ebook{position:absolute;z-index:5;right:-3%;top:36%;width:27%;transform:rotate(7deg);animation:capa 5s ease-in-out infinite}
+.portrait img.day-ebook{width:118%;max-width:none}
+.capa-ebook{position:absolute;z-index:4;left:76%;bottom:44%;width:34%;transform:rotate(-6deg);transform-origin:50% 100%;animation:capa 5s ease-in-out infinite}
 .capa-ebook img{display:block;width:100%;height:auto;border-radius:4px 8px 8px 4px;box-shadow:-6px 0 0 -2px rgba(0,0,0,.25) inset,0 18px 34px rgba(0,0,0,.6),0 0 0 2px rgba(255,255,255,.12)}
-.capa-ebook span{position:absolute;top:-10px;right:-10px;background:var(--verde);color:#062b14;font-family:var(--fd);font-weight:900;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;box-shadow:0 6px 14px rgba(0,0,0,.45);transform:rotate(-7deg)}
-@keyframes capa{50%{transform:rotate(7deg) translateY(-8px)}}
-@media(max-width:860px){.capa-ebook{right:-10%;width:30%}.capa-ebook span{font-size:.56rem;padding:4px 7px;top:-8px;right:-6px}}
+.capa-ebook span{position:absolute;z-index:2;top:-10px;right:-10px;background:var(--verde);color:#062b14;font-family:var(--fd);font-weight:900;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;box-shadow:0 6px 14px rgba(0,0,0,.45);transform:rotate(6deg)}
+@keyframes capa{50%{transform:rotate(-6deg) translateY(-6px)}}
+@media(max-width:860px){.capa-ebook{width:34%}.capa-ebook span{font-size:.56rem;padding:4px 7px;top:-8px;right:-6px}}
 .logo-placa .logo-bm{animation:neon 3s ease-in-out infinite}
 .logo-placa .bri{position:absolute;z-index:2;color:#fff;width:22px;height:22px;filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 12px var(--mag2));animation:cintila 2.4s ease-in-out infinite;pointer-events:none}
 .logo-placa .b1{top:2%;left:24%}.logo-placa .b2{top:44%;right:4%;width:16px;height:16px;animation-delay:-.8s}.logo-placa .b3{bottom:6%;left:9%;width:14px;height:14px;animation-delay:-1.6s}
@@ -260,9 +261,9 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         <svg class="cf fralda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 5.5h19v4.5c-3.4.3-5.6 3.3-6.2 9h-6.6c-.6-5.7-2.8-8.7-6.2-9z"/><path d="M2.5 8.5h19"/><path d="M5.5 8.5v1.6M18.5 8.5v1.6"/></svg>
         <svg class="cf bebe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 5c0-2.2 2.4-2.6 3.2-1.2"/><path d="M9.3 15.4c1.5 1.3 3.9 1.3 5.4 0"/><path d="M9 11.5h.01M15 11.5h.01" stroke-width="2.6"/></svg>
         <svg class="cf cor" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg>
-        <img src="../../assets/day-cut-bm.webp" alt="Dayane Dos Anjos" width="681" height="982">
+        <img class="day-ebook" src="../../assets/day-apresentando.webp" alt="Dayane Dos Anjos apresentando o ebook" width="900" height="916">
+        <div class="capa-ebook"><img src="../../assets/capa-enxoval.webp" alt="Capa do ebook Enxoval Descomplicado" width="760" height="1060"><span>Grátis</span></div>
       </div>
-      <div class="capa-ebook"><img src="../../assets/capa-enxoval.webp" alt="Capa do ebook Enxoval Descomplicado" width="760" height="1060"><span>Grátis</span></div>
       <div class="logo-placa"><img class="logo-bm" src="../../assets/bm-logo-3d-fundo.webp" alt="Black Maternity" width="900" height="483"><svg class="bri b1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg><svg class="bri b2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg><svg class="bri b3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg></div>
     </div>
     <div class="hero-txt">
