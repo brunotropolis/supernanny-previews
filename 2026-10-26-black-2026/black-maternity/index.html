@@ -109,6 +109,8 @@ h2{line-height:1.2}
 .form{grid-template-columns:minmax(0,1fr)}
 @media(max-width:420px){.form{padding:20px 14px 22px}.form button{padding:16px 12px;gap:7px;font-size:.78rem;letter-spacing:0}}
 .hp{position:absolute;left:-9999px}
+#cadastro{scroll-margin-top:110px}
+html{scroll-behavior:smooth}
 
 section{padding-block:64px}
 @media(min-width:861px){section{padding-block:88px}}
@@ -166,7 +168,8 @@ section{padding-block:64px}
 .bonus p{font-size:.88rem;color:var(--mut)}
 
 /* preço */
-.preco{background:radial-gradient(60% 50% at 50% 55%,rgba(226,31,130,.16),transparent 70%),var(--bg);padding-top:16px}
+.preco{background:radial-gradient(60% 50% at 50% 55%,rgba(226,31,130,.16),transparent 70%),var(--bg);padding-top:64px;padding-bottom:40px}
+.day{padding-top:36px}
 .caixa{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 22px;display:grid;gap:4px}
 .linha{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;padding:7px 0;border-bottom:1px dashed var(--line);color:var(--mut)}
 .linha span{padding-right:10px}
@@ -205,8 +208,17 @@ section{padding-block:64px}
 @media(max-width:420px){.cta{padding:16px 18px;gap:7px;font-size:.8rem}}
 
 /* day */
-.day-grid{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:center}
-@media(max-width:860px){.day-grid{grid-template-columns:1fr;gap:26px}.day .eyebrow,.day h2{display:block;text-align:center}}
+.day-grid{display:grid;grid-template-columns:400px 1fr;gap:48px;align-items:center}
+.lockup-day .portrait img{width:122%;max-width:none;margin-inline:-11%}
+.day .cargo{color:#FFB8D9;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+@media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:linear-gradient(180deg,#2A1233,#1B0D22);border:1px solid rgba(255,79,166,.35);border-radius:16px;padding:16px 10px;text-align:center;display:grid;justify-items:center;gap:2px}
+.stat .st-ico{color:var(--mag2);line-height:0;margin-bottom:6px}
+.stat .st-ico svg{width:26px;height:26px}
+.stat b{font-family:var(--fd);font-weight:900;font-size:1.4rem;color:#fff}
+.stat span{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#EADFEE}
+@media(max-width:860px){.day-grid{grid-template-columns:1fr;gap:20px}.day .eyebrow,.day h2{display:block;text-align:center}}
 .day-img img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .day-img{aspect-ratio:1;border-radius:50%;overflow:hidden;max-width:240px;margin:0 auto;box-shadow:0 0 0 4px var(--mag),0 0 60px rgba(226,31,130,.45)}
 .day h2{font-size:clamp(1.5rem,4vw,2.1rem);font-weight:900;margin-bottom:12px}
@@ -251,7 +263,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
       <span class="tag-aula">Aula exclusiva no grupo VIP</span>
       <h1>Como se preparar para os <span class="mag">5 maiores desafios</span> da maternidade ainda na gestação</h1>
       <p class="sub">Coloque seu WhatsApp, entre no grupo de gestantes, assista à aula da Day e veja o maior combo da história antes de todo mundo.</p>
-      <form class="form" data-lead="black-maternity" data-destino="entrando/" novalidate>
+      <form class="form" id="cadastro" data-lead="black-maternity" data-destino="entrando/" novalidate>
         <span class="data">A aula será liberada no dia <b data-data-curta>10/11</b>, para participar preencha o campo abaixo:</span>
         <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input id="whats1" name="whatsapp" placeholder="Seu WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required aria-label="Seu WhatsApp com DDD">
@@ -300,24 +312,27 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
       <h2>Todos os cursos e ebooks da Day em um só lugar</h2>
     </div>
     <div class="caixa">
-      <p class="grupo-t">10 cursos</p>
+      <p class="grupo-t">11 cursos</p>
       <div class="linha"><span>Plano de Parto</span><s>R$ 67</s></div>
       <div class="linha"><span>O Dia do Parto</span><s>R$ 67</s></div>
       <div class="linha"><span>Bebê Calminho</span><s>R$ 47</s></div>
       <div class="linha"><span>Primeiros Socorros</span><s>R$ 97</s></div>
-      <div class="linha"><span>Técnica dos Anjos (amamentação)</span><s>R$ 197</s></div>
-      <div class="linha"><span>Manual do Complemento</span><s>R$ 127</s></div>
-      <div class="linha"><span>Método Dream Baby (sono)</span><s>R$ 197</s></div>
-      <div class="linha"><span>Rotina do Bebê</span><s>R$ 97</s></div>
-      <div class="linha"><span>Dream Baby Pocket</span><s>R$ 97</s></div>
+      <div class="linha"><span>Técnica Dos Anjos na Amamentação</span><s>R$ 197</s></div>
       <div class="linha"><span>Guia da Pega</span><s>R$ 97</s></div>
-      <p class="grupo-t">6 ebooks</p>
+      <div class="linha"><span>Técnica Pesque Baby</span><s>R$ 47</s></div>
+      <div class="linha"><span>Como Estocar o Leite Materno</span><s>R$ 47</s></div>
+      <div class="linha"><span>Método de Sono Dream Baby</span><s>R$ 197</s></div>
+      <div class="linha"><span>Dream Baby Pocket</span><s>R$ 97</s></div>
+      <div class="linha"><span>Mini Curso de Rotina</span><s>R$ 47</s></div>
+      <p class="grupo-t">8 ebooks</p>
       <div class="linha"><span>Como Vestir o Bebê</span><s>R$ 59</s></div>
       <div class="linha"><span>Entre Sonecas</span><s>R$ 59</s></div>
       <div class="linha"><span>Rotina do Bebê</span><s>R$ 59</s></div>
       <div class="linha"><span>Alta Produção de Leite</span><s>R$ 59</s></div>
       <div class="linha"><span>Introdução Alimentar</span><s>R$ 59</s></div>
       <div class="linha"><span>Enxoval Descomplicado</span><s>R$ 59</s></div>
+      <div class="linha"><span>Saltos de Desenvolvimento</span><s>R$ 59</s></div>
+      <div class="linha"><span>Atividades pra Gastar Energia</span><s>R$ 59</s></div>
     </div>
   </div>
 </section>
@@ -343,29 +358,42 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     <div class="titulo"><span class="eyebrow">Somando tudo</span><h2>Quanto custaria comprar tudo separado</h2></div>
     <div class="caixa">
       <div class="total">
-        <span class="de">R$ 2.026</span>
+        <span class="de">R$ 2.061</span>
         <svg class="seta-p" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
         <span class="na">Na Black Maternity</span>
         <span class="por">R$ ????</span>
         <span class="vista">O valor é revelado só para quem está no grupo VIP</span>
       </div>
-      <div class="cta-c"><a class="cta" href="#entrar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Ver o valor no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
+      <div class="cta-c"><a class="cta" href="#cadastro" data-foco="whats1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Ver o valor no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
     </div>
   </div>
 </section>
 
 <section class="day">
   <div class="wrap day-grid">
-    <div class="day-img"><img src="../assets/bm-day.webp" alt="Dayane Dos Anjos" width="600" height="600" loading="lazy"></div>
+    <div class="lockup lockup-aula lockup-day">
+      <div class="portrait">
+        <span class="halo"></span><span class="rings"></span><span class="arch"></span>
+        <svg class="cf lua" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a7 7 0 0 0 11.1 11.1z"/></svg>
+        <svg class="cf zz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h6l-6 7h6M13 4h4l-4 5h4M17 14h4l-4 5h4"/></svg>
+        <svg class="cf fralda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 5.5h19v4.5c-3.4.3-5.6 3.3-6.2 9h-6.6c-.6-5.7-2.8-8.7-6.2-9z"/><path d="M2.5 8.5h19"/><path d="M5.5 8.5v1.6M18.5 8.5v1.6"/></svg>
+        <svg class="cf bebe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 5c0-2.2 2.4-2.6 3.2-1.2"/><path d="M9.3 15.4c1.5 1.3 3.9 1.3 5.4 0"/><path d="M9 11.5h.01M15 11.5h.01" stroke-width="2.6"/></svg>
+        <svg class="cf cor" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg>
+        <img src="../assets/day-maos-cintura.webp" alt="Dayane Dos Anjos" width="760" height="735" loading="lazy">
+      </div>
+      <div class="logo-placa placa-aula"><span>+21 mil<br>alunas</span><svg class="bri b1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg><svg class="bri b2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg><svg class="bri b3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg></div>
+    </div>
     <div>
       <span class="eyebrow">Quem está por trás da Black Maternity</span>
       <h2>Dayane Dos Anjos</h2>
-      <p>Mãe, consultora de sono, amamentação e cuidados com o bebê. Quando se tornou mãe, descobriu o quanto esse início pode ser desafiador: o cansaço, as dúvidas e o medo de errar.</p>
+      <p class="cargo">Consultora de sono, amamentação e cuidados com o bebê.</p>
+      <p>Quando se tornou mãe, descobriu o quanto esse início pode ser desafiador: o cansaço, as dúvidas e o medo de errar.</p>
       <p>Foi aí que encontrou o propósito de transformar informação em acolhimento, pra que outras mulheres se sintam seguras e confiantes nos cuidados com o bebê.</p>
-      <div class="nums">
-        <div><b><i>+</i>21 mil</b><span>alunas</span></div>
-        <div><b><i>+</i>779 mil</b><span>inscritos</span></div>
-        <div><b><i>+</i>586 mil</b><span>seguidores</span></div>
+      <div class="stats">
+        <div class="stat"><div class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 18.5V20"/><circle cx="9.5" cy="8" r="3.2"/><path d="M20 20v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 4.8a3.2 3.2 0 0 1 0 6.3"/></svg></div><b>+21 mil</b><span>alunas</span></div>
+        <div class="stat"><div class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4.5"/><path d="M10.2 8.7l5 3.3-5 3.3z" fill="currentColor" stroke="none"/></svg></div><b>+807k</b><span>YouTube</span></div>
+        <div class="stat"><div class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></div><b>+642k</b><span>Instagram</span></div>
+        <div class="stat"><div class="st-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4v10.2a3.4 3.4 0 1 1-3.4-3.4"/><path d="M13.5 4c.5 2.1 1.9 3.5 4 3.8"/></svg></div><b>+660k</b><span>TikTok</span></div>
       </div>
     </div>
   </div>
@@ -385,5 +413,10 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 </section>
 
 <footer>Manual do Recém-Nascido · Dayane Dos Anjos</footer>
+<script>
+document.querySelectorAll('[data-foco]').forEach(a => a.addEventListener('click', () => {
+  setTimeout(() => { const i = document.getElementById(a.dataset.foco); if (i) i.focus({ preventScroll: true }); }, 650);
+}));
+</script>
 </body>
 </html>
