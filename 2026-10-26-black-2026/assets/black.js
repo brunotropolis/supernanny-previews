@@ -83,18 +83,18 @@ window.CONFIG = {
         const nome = form.querySelector('[name=nome]'), erro = form.querySelector('.erro');
         const digitos = tel.value.replace(/\D/g, '');
         erro.textContent = '';
-        if (nome.value.trim().length < 2) { erro.textContent = 'Escreve seu nome pra gente te chamar certinho.'; nome.focus(); return; }
+        if (nome && nome.value.trim().length < 2) { erro.textContent = 'Escreve seu nome pra gente te chamar certinho.'; nome.focus(); return; }
         if (digitos.length < 10) { erro.textContent = 'Confere o WhatsApp com DDD, por favor.'; tel.focus(); return; }
         const btn = form.querySelector('button'); btn.disabled = true; btn.classList.add('enviando');
         const q = new URLSearchParams(location.search);
         const lead = {
-          nome: nome.value.trim(), whatsapp: '55' + digitos,
+          nome: nome ? nome.value.trim() : '', whatsapp: '55' + digitos,
           frente: form.dataset.lead, versao: form.dataset.versao || '',
           origem: q.get('origem') || q.get('utm_source') || '', utm_campaign: q.get('utm_campaign') || '',
           enviado_em: new Date().toISOString()
         };
         try { await enviarLead(lead); } catch (_) {}
-        try { sessionStorage.setItem('primeiroNome', lead.nome.split(' ')[0]); } catch (_) {}
+        try { if (lead.nome) sessionStorage.setItem('primeiroNome', lead.nome.split(' ')[0]); else sessionStorage.removeItem('primeiroNome'); } catch (_) {}
         location.href = form.dataset.destino;
       });
     });
