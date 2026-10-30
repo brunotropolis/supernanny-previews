@@ -171,6 +171,25 @@ section{padding-block:64px}
 .cta svg{flex:none;width:1.35em;height:1.35em}.cta .seta{width:1em;height:1em}
 .cta{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.84rem,3.6vw,1rem);text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border-radius:999px;padding:18px 26px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(32,194,91,.8)}
 
+.emenda{margin-top:22px;background:rgba(226,31,130,.12);border:1px solid rgba(255,79,166,.45);border-radius:16px;padding:16px 18px;line-height:1.5}
+.grupo-t{font-family:var(--fd);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mag2);margin:14px 0 2px}
+.grupo-t:first-child{margin-top:0}
+.linha s{font-family:var(--fd);font-weight:700;color:var(--txt);white-space:nowrap;text-decoration-color:var(--mag2);text-decoration-thickness:2px}
+.extras{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}
+@media(max-width:760px){.extras{grid-template-columns:1fr}}
+.extra{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px 12px 20px;display:grid;gap:10px;align-content:start}
+.extra-img{position:relative;border-radius:14px;overflow:hidden}
+.extra-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.extra-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,26,.55),transparent 45%)}
+.selo-img{position:absolute;z-index:1;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;background:var(--verde);color:#062b14;font-family:var(--fd);font-weight:800;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.selo-img svg{width:15px;height:15px}
+.extra h3{font-size:1.05rem;font-weight:800;padding:0 6px}
+.extra p{font-size:.92rem;color:var(--mut);padding:0 6px}
+.preco .caixa{padding-top:30px}
+.preco .total{margin-top:0}
+.cta{max-width:100%}
+@media(max-width:420px){.cta{padding:16px 18px;gap:7px;font-size:.8rem}}
+
 /* day */
 .day-grid{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:center}
 @media(max-width:860px){.day-grid{grid-template-columns:1fr;gap:26px}.day .eyebrow,.day h2{display:block;text-align:center}}
@@ -235,13 +254,17 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     <div class="aula-img"><img src="../assets/bm-aula-limpa.webp" alt="Day com presentes da Black Maternity" width="520" height="520" loading="lazy"></div>
     <div>
       <span class="tag">Aula exclusiva do grupo</span>
-      <h2>O que a Day vai te mostrar na aula</h2>
-      <p>A aula fica disponível só pra quem está dentro do grupo VIP. É a Day explicando, com calma, o que costuma pegar as mães de surpresa nas primeiras semanas e como chegar nesse momento mais tranquila.</p>
+      <h2>A aula que a Day deu só para as alunas, agora liberada no grupo</h2>
+      <p>A Day vai disponibilizar no grupo VIP uma aula exclusiva que ela deu para as alunas do Manual do Recém-Nascido. Nela, ela conta tudo sobre como você deve se preparar para a chegada do bebê:</p>
       <ul>
-        <li>Aula gravada, pra assistir quando der</li>
-        <li>Liberada dentro do grupo da sua semana</li>
-        <li>No mesmo grupo você vê a oferta da Black antes de todo mundo</li>
+        <li>A chegada do bebê: o que deixar pronto e o que esperar dos primeiros dias</li>
+        <li>Amamentação: como começar do jeito certo</li>
+        <li>Sono: como ajudar o bebê (e você) a dormir melhor</li>
+        <li>E muito mais, com a calma e o jeitinho da Day</li>
       </ul>
+      <div class="emenda">
+        <b>E tem mais:</b> quem estiver no grupo também vai ver, antes de todo mundo, uma oportunidade única de Black Friday. A nossa <span class="mag">Black Maternity</span>.
+      </div>
     </div>
   </div>
 </section>
@@ -249,65 +272,62 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 <section>
   <div class="wrap">
     <div class="titulo">
-      <span class="eyebrow">Tudo o que está dentro da Black Maternity</span>
-      <h2>8 cursos completos, do parto ao primeiro ano</h2>
+      <span class="eyebrow">O que está dentro da Black Maternity</span>
+      <h2>Todos os cursos e ebooks da Day em um só lugar</h2>
     </div>
-    <div class="cursos">
-      <div class="curso"><img src="../assets/plano-de-parto.webp" alt="" loading="lazy"><h3>Plano de Parto</h3><p>Aprenda com a Day a montar seu plano e entenda cada decisão.</p><span class="v">Separado: <s>R$ 67</s></span></div>
-      <div class="curso"><img src="../assets/dia-do-parto.webp" alt="" loading="lazy"><h3>O Dia do Parto</h3><p>Cada detalhe do grande dia, pra viver esse momento com segurança.</p><span class="v">Separado: <s>R$ 67</s></span></div>
-      <div class="curso"><img src="../assets/bebe-calminho.webp" alt="" loading="lazy"><h3>Bebê Calminho</h3><p>Os cuidados que realmente importam nos primeiros dias.</p><span class="v">Separado: <s>R$ 47</s></span></div>
-      <div class="curso"><img src="../assets/primeiros-socorros.webp" alt="" loading="lazy"><h3>Primeiros Socorros</h3><p>Como agir numa emergência, trocando o medo por preparo.</p><span class="v">Separado: <s>R$ 97</s></span></div>
-      <div class="curso"><img src="../assets/tecnica-dos-anjos.webp" alt="" loading="lazy"><h3>Técnica dos Anjos</h3><p>O passo a passo da pega certa, pra amamentar com conforto e confiança.</p><span class="v">Separado: <s>R$ 197</s></span></div>
-      <div class="curso"><img src="../assets/manual-complemento.webp" alt="" loading="lazy"><h3>Manual do Complemento</h3><p>Retirar, armazenar e oferecer o leite com tranquilidade.</p><span class="v">Separado: <s>R$ 127</s></span></div>
-      <div class="curso"><img src="../assets/dream-baby.webp" alt="" loading="lazy"><h3>Método Dream Baby</h3><p>Sono tranquilo desde os primeiros dias, no berço e sem choro.</p><span class="v">Separado: <s>R$ 197</s></span></div>
-      <div class="curso"><img src="../assets/rotina.webp" alt="" loading="lazy"><h3>Rotina do Bebê</h3><p>O dia do bebê organizado entre sono, mamadas e brincadeiras.</p><span class="v">Separado: <s>R$ 97</s></span></div>
-    </div>
-    <p class="sub-h">E mais 6 ebooks, do enxoval à introdução alimentar</p>
-    <div class="ebooks">
-      <div class="ebook"><img src="../assets/eb-vestir.webp" alt="" loading="lazy"><span>Como Vestir o Bebê</span></div>
-      <div class="ebook"><img src="../assets/eb-sonecas.webp" alt="" loading="lazy"><span>Entre Sonecas</span></div>
-      <div class="ebook"><img src="../assets/eb-rotina.webp" alt="" loading="lazy"><span>Rotina do Bebê</span></div>
-      <div class="ebook"><img src="../assets/eb-alta.webp" alt="" loading="lazy"><span>Alta Produção de Leite</span></div>
-      <div class="ebook"><img src="../assets/eb-introducao.webp" alt="" loading="lazy"><span>Introdução Alimentar</span></div>
-      <div class="ebook"><img src="../assets/eb-enxoval.webp" alt="" loading="lazy"><span>Enxoval Descomplicado</span></div>
+    <div class="caixa">
+      <p class="grupo-t">10 cursos</p>
+      <div class="linha"><span>Plano de Parto</span><s>R$ 67</s></div>
+      <div class="linha"><span>O Dia do Parto</span><s>R$ 67</s></div>
+      <div class="linha"><span>Bebê Calminho</span><s>R$ 47</s></div>
+      <div class="linha"><span>Primeiros Socorros</span><s>R$ 97</s></div>
+      <div class="linha"><span>Técnica dos Anjos (amamentação)</span><s>R$ 197</s></div>
+      <div class="linha"><span>Manual do Complemento</span><s>R$ 127</s></div>
+      <div class="linha"><span>Método Dream Baby (sono)</span><s>R$ 197</s></div>
+      <div class="linha"><span>Rotina do Bebê</span><s>R$ 97</s></div>
+      <div class="linha"><span>Dream Baby Pocket</span><s>R$ 97</s></div>
+      <div class="linha"><span>Guia da Pega</span><s>R$ 97</s></div>
+      <p class="grupo-t">6 ebooks</p>
+      <div class="linha"><span>Como Vestir o Bebê</span><s>R$ 59</s></div>
+      <div class="linha"><span>Entre Sonecas</span><s>R$ 59</s></div>
+      <div class="linha"><span>Rotina do Bebê</span><s>R$ 59</s></div>
+      <div class="linha"><span>Alta Produção de Leite</span><s>R$ 59</s></div>
+      <div class="linha"><span>Introdução Alimentar</span><s>R$ 59</s></div>
+      <div class="linha"><span>Enxoval Descomplicado</span><s>R$ 59</s></div>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="titulo"><span class="eyebrow">E você não fica sozinha</span><h2>Bônus da Black Maternity</h2></div>
-    <div class="bonus">
-      <div><img src="../assets/bm-12meses.webp" alt="" loading="lazy"><h3>1 ano de acompanhamento</h3><p>Apoio individual no seu WhatsApp com a equipe da Day, e você escolhe quando começar.</p></div>
-      <div><img src="../assets/bm-comunidade.webp" alt="" loading="lazy"><h3>Grupo de mães</h3><p>Troca de experiências reais, da gestação aos primeiros meses do bebê.</p></div>
-      <div><img src="../assets/bm-cupons.webp" alt="" loading="lazy"><h3>Grupo de cupons</h3><p>Descontos selecionados em fraldas, roupinhas, higiene e enxoval.</p></div>
+    <div class="titulo"><span class="eyebrow">E você não fica sozinha</span><h2>Além de tudo isso</h2></div>
+    <div class="extras">
+      <div class="extra">
+        <div class="extra-img"><img src="../assets/bm-whats.webp" alt="Mãos digitando uma mensagem no celular" width="900" height="675" loading="lazy"><span class="selo-img"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>1 ano no WhatsApp</span></div>
+        <h3>Acompanhamento por 1 ano no WhatsApp</h3>
+        <p>Bateu a dúvida? É só mandar mensagem. A equipe da Day te acompanha por 1 ano, e você escolhe quando começar.</p>
+      </div>
+      <div class="extra">
+        <div class="extra-img"><img src="../assets/bm-enxoval-cupons.webp" alt="Roupinhas de bebê penduradas" width="900" height="675" loading="lazy"><span class="selo-img">% Cupons em primeira mão</span></div>
+        <h3>Grupo do enxoval com cupons em primeira mão</h3>
+        <p>Descontos selecionados em fraldas, roupinhas, higiene e enxoval, chegando pra você antes de todo mundo.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="preco">
   <div class="wrap">
-    <div class="titulo"><span class="eyebrow">Pagando tudo separado</span><h2>Quanto custaria fora da Black</h2></div>
+    <div class="titulo"><span class="eyebrow">Somando tudo</span><h2>Quanto custaria comprar tudo separado</h2></div>
     <div class="caixa">
-      <div class="linha"><span>Plano de Parto</span><b>R$ 67</b></div>
-      <div class="linha"><span>O Dia do Parto</span><b>R$ 67</b></div>
-      <div class="linha"><span>Bebê Calminho</span><b>R$ 47</b></div>
-      <div class="linha"><span>Os Primeiros Socorros</span><b>R$ 97</b></div>
-      <div class="linha"><span>Técnica dos Anjos na Amamentação</span><b>R$ 197</b></div>
-      <div class="linha"><span>Manual do Complemento</span><b>R$ 127</b></div>
-      <div class="linha"><span>Método de Sono Dream Baby</span><b>R$ 197</b></div>
-      <div class="linha"><span>Rotina do Bebê</span><b>R$ 97</b></div>
-      <div class="linha"><span>6 ebooks (R$ 19 a R$ 59 cada)</span><b>R$ 314</b></div>
-      <div class="linha"><span>Acompanhamento por 1 ano</span><b>R$ 582</b></div>
       <div class="total">
-        <span class="de">R$ 1.792</span>
+        <span class="de">R$ 2.026</span>
         <span class="seta">↓</span>
         <span class="na">Na Black Maternity</span>
-        <span class="por">12x R$ 51,10</span>
-        <span class="vista">ou R$ 497 à vista</span>
-        <span class="garantia">7 dias de garantia. Se não for pra você, devolvemos tudo.</span>
+        <span class="por">R$ ????</span>
+        <span class="vista">O valor é revelado só para quem está no grupo VIP</span>
       </div>
-      <div class="cta-c"><a class="cta" href="#entrar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Quero entrar no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
+      <div class="cta-c"><a class="cta" href="#entrar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Ver o valor no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
     </div>
   </div>
 </section>
