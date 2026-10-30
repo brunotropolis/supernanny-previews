@@ -37,7 +37,7 @@ h2{line-height:1.2}
 .black-hoje .barra .antes{display:none}.black-hoje .barra .hoje{display:inline}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding-block:14px 60px;background:radial-gradient(45% 55% at 25% 45%,rgba(226,31,130,.32),transparent 70%),radial-gradient(50% 50% at 90% 10%,rgba(109,42,136,.4),transparent 70%)}
+.hero{position:relative;overflow:hidden;padding-block:40px 60px;background:radial-gradient(45% 55% at 25% 45%,rgba(226,31,130,.32),transparent 70%),radial-gradient(50% 50% at 90% 10%,rgba(109,42,136,.4),transparent 70%)}
 .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .lockup{position:relative;justify-self:center;width:min(420px,100%);padding-top:40px;display:grid;justify-items:center}
 .logo-placa{position:relative;z-index:6;width:100%;margin-top:-22%}
@@ -119,10 +119,10 @@ section{padding-block:64px}
 
 /* aula */
 .aula{background:linear-gradient(180deg,var(--bg) 0%,#1F0A2C 100%)}
-.lista-sec{background:linear-gradient(180deg,#1F0A2C 0%,#3B0B2B 100%)}
-.extras-sec{background:linear-gradient(180deg,#3B0B2B 0%,var(--bg) 100%)}
+.lista-sec{background:linear-gradient(180deg,#1F0A2C 0%,#3B0B2B 100%);padding-bottom:20px}
+.extras-sec{background:linear-gradient(180deg,#3B0B2B 0%,var(--bg) 100%);padding-top:16px;padding-bottom:12px}
 .aula-grid{display:grid;grid-template-columns:400px 1fr;gap:48px;align-items:center}
-.aula p b{color:var(--txt)}
+.aula p b{color:#FFB8D9;font-size:1.1em}
 .lockup-aula{width:min(380px,100%);padding-top:30px}
 .lockup-aula .arch{background:linear-gradient(160deg,#7B3196,#2A0F3A)}
 .lockup-aula .portrait{width:74%}
@@ -166,14 +166,14 @@ section{padding-block:64px}
 .bonus p{font-size:.88rem;color:var(--mut)}
 
 /* preço */
-.preco{background:radial-gradient(70% 60% at 50% 0%,rgba(226,31,130,.25),transparent 70%),var(--bg2)}
+.preco{background:radial-gradient(60% 50% at 50% 55%,rgba(226,31,130,.16),transparent 70%),var(--bg);padding-top:16px}
 .caixa{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px 22px;display:grid;gap:4px}
 .linha{display:flex;justify-content:space-between;gap:12px;font-size:.92rem;padding:7px 0;border-bottom:1px dashed var(--line);color:var(--mut)}
 .linha span{padding-right:10px}
 .linha b{font-family:var(--fd);color:var(--txt);font-weight:700;white-space:nowrap}
 .total{text-align:center;margin-top:22px;display:grid;gap:6px}
 .total .de{font-family:var(--fd);font-weight:800;font-size:clamp(1.4rem,5vw,1.9rem);color:var(--mut);text-decoration:line-through;text-decoration-color:var(--mag2);text-decoration-thickness:2px}
-.total .seta{color:var(--mag2);font-size:1.4rem}
+.total .seta-p{color:var(--mag2);width:28px;height:28px;margin:2px auto;transform:rotate(90deg)}
 .total .na{font-family:var(--fd);font-weight:800;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mag2)}
 .total .por{font-family:var(--fd);font-weight:900;font-size:clamp(2.6rem,11vw,4.2rem);line-height:1;background:linear-gradient(180deg,#fff,var(--mag2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .total .vista{font-family:var(--fd);font-weight:700;color:var(--txt)}
@@ -190,14 +190,15 @@ section{padding-block:64px}
 .linha s{font-family:var(--fd);font-weight:700;color:var(--txt);white-space:nowrap;text-decoration-color:var(--mag2);text-decoration-thickness:2px}
 .extras{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:900px;margin:0 auto}
 @media(max-width:760px){.extras{grid-template-columns:1fr}}
-.extra{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px 12px 20px;display:grid;gap:10px;align-content:start}
-.extra-img{position:relative;border-radius:14px;overflow:hidden}
+.extra{background:linear-gradient(180deg,#2A1233,#1B0D22);border:1px solid rgba(255,79,166,.35);border-radius:20px;overflow:hidden;display:grid;align-content:start;box-shadow:0 18px 40px -20px rgba(226,31,130,.5)}
+.extra-txt{padding:20px 22px 24px;display:grid;gap:10px}
+.extra-img{position:relative;overflow:hidden}
 .extra-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
 .extra-img::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,26,.55),transparent 45%)}
 .selo-img{position:absolute;z-index:1;left:12px;bottom:12px;display:inline-flex;align-items:center;gap:6px;background:var(--verde);color:#062b14;font-family:var(--fd);font-weight:800;font-size:.74rem;letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
 .selo-img svg{width:15px;height:15px}
-.extra h3{font-size:1.05rem;font-weight:800;padding:0 6px}
-.extra p{font-size:.92rem;color:var(--mut);padding:0 6px}
+.extra h3{font-size:1.18rem;font-weight:900;line-height:1.25;color:#fff}
+.extra p{font-size:.98rem;line-height:1.55;color:#EADFEE}
 .preco .caixa{padding-top:30px}
 .preco .total{margin-top:0}
 .cta{max-width:100%}
@@ -327,13 +328,11 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     <div class="extras">
       <div class="extra">
         <div class="extra-img"><img src="../assets/bm-whats.webp" alt="Mãos digitando uma mensagem no celular" width="900" height="675" loading="lazy"><span class="selo-img"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg>1 ano no WhatsApp</span></div>
-        <h3>Acompanhamento por 1 ano no WhatsApp</h3>
-        <p>Bateu a dúvida? É só mandar mensagem. A equipe da Day te acompanha por 1 ano, e você escolhe quando começar.</p>
+        <div class="extra-txt"><h3>Acompanhamento por 1 ano no WhatsApp</h3><p>Bateu a dúvida? É só mandar mensagem. A equipe da Day te acompanha por 1 ano, e você escolhe quando começar.</p></div>
       </div>
       <div class="extra">
         <div class="extra-img"><img src="../assets/bm-enxoval-cupons.webp" alt="Roupinhas de bebê penduradas" width="900" height="675" loading="lazy"><span class="selo-img">% Cupons em primeira mão</span></div>
-        <h3>Grupo do enxoval com cupons em primeira mão</h3>
-        <p>Descontos selecionados em fraldas, roupinhas, higiene e enxoval, chegando pra você antes de todo mundo.</p>
+        <div class="extra-txt"><h3>Grupo do enxoval com cupons em primeira mão</h3><p>Descontos selecionados em fraldas, roupinhas, higiene e enxoval, chegando pra você antes de todo mundo.</p></div>
       </div>
     </div>
   </div>
@@ -345,7 +344,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     <div class="caixa">
       <div class="total">
         <span class="de">R$ 2.026</span>
-        <span class="seta">↓</span>
+        <svg class="seta-p" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
         <span class="na">Na Black Maternity</span>
         <span class="por">R$ ????</span>
         <span class="vista">O valor é revelado só para quem está no grupo VIP</span>
