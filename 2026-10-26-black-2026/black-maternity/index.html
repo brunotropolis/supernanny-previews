@@ -118,12 +118,23 @@ section{padding-block:64px}
 .titulo p{color:var(--mut);max-width:58ch;margin:0 auto}
 
 /* aula */
-.aula{background:var(--bg2)}
-.aula-grid{display:grid;grid-template-columns:420px 1fr;gap:40px;align-items:center}
+.aula{background:linear-gradient(180deg,var(--bg) 0%,#1F0A2C 100%)}
+.lista-sec{background:linear-gradient(180deg,#1F0A2C 0%,#3B0B2B 100%)}
+.extras-sec{background:linear-gradient(180deg,#3B0B2B 0%,var(--bg) 100%)}
+.aula-grid{display:grid;grid-template-columns:400px 1fr;gap:48px;align-items:center}
+.aula p b{color:var(--txt)}
+.lockup-aula{width:min(380px,100%);padding-top:30px}
+.lockup-aula .arch{background:linear-gradient(160deg,#7B3196,#2A0F3A)}
+.lockup-aula .portrait{width:74%}
+.lockup-aula .portrait img{width:100%}
+.placa-aula{width:78%;margin-top:-20%;padding:14px 10px;border-radius:18px;text-align:center;background:linear-gradient(160deg,#2A0D33,#12071A);box-shadow:0 0 0 2px #FF4FA6,0 0 18px rgba(255,79,166,.75),inset 0 0 16px rgba(255,79,166,.35),0 16px 34px rgba(0,0,0,.55);animation:neon-caixa 3s ease-in-out infinite}
+.placa-aula span{display:block;font-family:var(--fd);font-weight:900;font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:.98;text-transform:uppercase;letter-spacing:.02em;background:linear-gradient(180deg,#fff 20%,#FFC2DE 60%,#F2A3C8);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #B0145F) drop-shadow(0 4px 6px rgba(0,0,0,.5))}
+@keyframes neon-caixa{50%{box-shadow:0 0 0 2px #FF4FA6,0 0 30px rgba(255,79,166,1),inset 0 0 20px rgba(255,79,166,.45),0 16px 34px rgba(0,0,0,.55)}}
+@media(max-width:860px){.lockup-aula{width:min(280px,76vw);padding-top:26px;justify-self:center}.aula h2,.aula > .wrap > div:last-child{text-align:left}}
 @media(max-width:860px){.aula-grid{grid-template-columns:1fr}}
 .aula-img img{width:100%;height:auto;aspect-ratio:1/.78;object-fit:cover;object-position:50% 100%}
 .aula-img{border-radius:20px;overflow:hidden;max-width:420px;margin:0 auto;-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent);mask-image:linear-gradient(to bottom,#000 78%,transparent)}
-.aula .tag{display:inline-block;background:var(--mag);color:#fff;font-family:var(--fd);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:16px}
+.aula .tag-old{display:inline-block;background:var(--mag);color:#fff;font-family:var(--fd);font-weight:800;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:16px}
 .aula h2{font-size:clamp(1.4rem,3.6vw,2rem);font-weight:900;margin-bottom:12px}
 .aula p{color:var(--mut)}
 .aula ul{list-style:none;padding:0;display:grid;gap:14px;margin-top:20px;line-height:1.45}
@@ -171,7 +182,9 @@ section{padding-block:64px}
 .cta svg{flex:none;width:1.35em;height:1.35em}.cta .seta{width:1em;height:1em}
 .cta{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.84rem,3.6vw,1rem);text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border-radius:999px;padding:18px 26px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(32,194,91,.8)}
 
-.emenda{margin-top:22px;background:rgba(226,31,130,.12);border:1px solid rgba(255,79,166,.45);border-radius:16px;padding:16px 18px;line-height:1.5}
+.emenda{margin-top:32px;background:rgba(226,31,130,.12);border:1px solid rgba(255,79,166,.45);border-radius:16px;padding:18px 20px;display:grid;gap:8px;line-height:1.5}
+.emenda-t{font-family:var(--fd);font-weight:900;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mag2)}
+.emenda p{color:var(--txt)}
 .grupo-t{font-family:var(--fd);font-weight:800;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mag2);margin:14px 0 2px}
 .grupo-t:first-child{margin-top:0}
 .linha s{font-family:var(--fd);font-weight:700;color:var(--txt);white-space:nowrap;text-decoration-color:var(--mag2);text-decoration-thickness:2px}
@@ -208,7 +221,7 @@ section{padding-block:64px}
 .final .form{max-width:460px;margin:0 auto;text-align:left}
 footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:center;font-size:.78rem;color:var(--mut);border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-@media (prefers-reduced-motion:reduce){.portrait .rings,.portrait .cf,.form button,.cta,.logo-placa .bri,.logo-placa .logo-bm{animation:none}}
+@media (prefers-reduced-motion:reduce){.portrait .rings,.portrait .cf,.form button,.cta,.placa-aula,.logo-placa .bri,.logo-placa .logo-bm{animation:none}}
 </style>
 <script src="../assets/black.js" defer></script>
 </head>
@@ -251,25 +264,35 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 
 <section class="aula">
   <div class="wrap aula-grid">
-    <div class="aula-img"><img src="../assets/bm-aula-limpa.webp" alt="Day com presentes da Black Maternity" width="520" height="520" loading="lazy"></div>
+    <div class="lockup lockup-aula">
+      <div class="portrait">
+        <span class="halo"></span><span class="rings"></span><span class="arch"></span>
+        <svg class="cf lua" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a7 7 0 0 0 11.1 11.1z"/></svg>
+        <svg class="cf zz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h6l-6 7h6M13 4h4l-4 5h4M17 14h4l-4 5h4"/></svg>
+        <svg class="cf fralda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 5.5h19v4.5c-3.4.3-5.6 3.3-6.2 9h-6.6c-.6-5.7-2.8-8.7-6.2-9z"/><path d="M2.5 8.5h19"/><path d="M5.5 8.5v1.6M18.5 8.5v1.6"/></svg>
+        <svg class="cf bebe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 5c0-2.2 2.4-2.6 3.2-1.2"/><path d="M9.3 15.4c1.5 1.3 3.9 1.3 5.4 0"/><path d="M9 11.5h.01M15 11.5h.01" stroke-width="2.6"/></svg>
+        <svg class="cf cor" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11z"/></svg>
+        <img src="../assets/day-bracos-cruzados.webp" alt="Dayane Dos Anjos de braços cruzados" width="693" height="964" loading="lazy">
+      </div>
+      <div class="logo-placa placa-aula"><span>Aula<br>exclusiva</span><svg class="bri b1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg><svg class="bri b2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg><svg class="bri b3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg></div>
+    </div>
     <div>
-      <span class="tag">Aula exclusiva do grupo</span>
-      <h2>A aula que a Day deu só para as alunas, agora liberada no grupo</h2>
-      <p>A Day vai disponibilizar no grupo VIP uma aula exclusiva que ela deu para as alunas do Manual do Recém-Nascido. Nela, ela conta tudo sobre como você deve se preparar para a chegada do bebê:</p>
+      <h2>A Day vai preparar você para a chegada do bebê</h2>
+      <p>Na próxima terça-feira, <b data-data-curta>10/11</b>, a Day libera no grupo <b>"Como se preparar para os 5 maiores desafios da maternidade ainda na gestação"</b>, que até hoje era exclusiva das alunas do Manual do Recém-Nascido.</p>
       <ul>
-        <li>A chegada do bebê: o que deixar pronto e o que esperar dos primeiros dias</li>
-        <li>Amamentação: como começar do jeito certo</li>
-        <li>Sono: como ajudar o bebê (e você) a dormir melhor</li>
-        <li>E muito mais, com a calma e o jeitinho da Day</li>
+        <li>O que deixar pronto para a chegada</li>
+        <li>Amamentação desde o primeiro dia</li>
+        <li>Sono do bebê (e o seu)</li>
       </ul>
       <div class="emenda">
-        <b>E tem mais:</b> quem estiver no grupo também vai ver, antes de todo mundo, uma oportunidade única de Black Friday. A nossa <span class="mag">Black Maternity</span>.
+        <span class="emenda-t">A nossa Black Maternity</span>
+        <p>Quem estiver no grupo também vai ver, antes de todo mundo, uma oportunidade única de Black Friday.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="lista-sec">
   <div class="wrap">
     <div class="titulo">
       <span class="eyebrow">O que está dentro da Black Maternity</span>
@@ -298,7 +321,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
   </div>
 </section>
 
-<section style="padding-top:0">
+<section class="extras-sec">
   <div class="wrap">
     <div class="titulo"><span class="eyebrow">E você não fica sozinha</span><h2>Além de tudo isso</h2></div>
     <div class="extras">
