@@ -37,54 +37,53 @@ h2{line-height:1.2}
 .black-hoje .barra .antes{display:none}.black-hoje .barra .hoje{display:inline}
 
 /* hero */
-.hero{position:relative;overflow:hidden;padding-block:30px 60px;background:radial-gradient(45% 55% at 25% 45%,rgba(226,31,130,.32),transparent 70%),radial-gradient(50% 50% at 90% 10%,rgba(109,42,136,.4),transparent 70%)}
-.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
+.hero{position:relative;overflow:hidden;padding-block:14px 60px;background:radial-gradient(45% 55% at 25% 45%,rgba(226,31,130,.32),transparent 70%),radial-gradient(50% 50% at 90% 10%,rgba(109,42,136,.4),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:start}
 .lockup{position:relative;justify-self:center;width:min(380px,100%);display:grid;justify-items:center}
-.lockup .logo-bm{position:relative;z-index:6;width:100%;height:auto;margin-top:-26%;filter:drop-shadow(0 12px 30px rgba(0,0,0,.6)) drop-shadow(0 0 24px rgba(226,31,130,.35))}
-.hero-txt{display:grid;gap:14px;justify-items:start}
+.logo-placa{position:relative;z-index:6;width:100%;margin-top:-22%}
+.logo-placa .logo-bm{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 28px rgba(0,0,0,.6)) drop-shadow(0 0 22px rgba(226,31,130,.35))}
+.hero-txt>*{min-width:0;max-width:100%}
+.hero-txt{display:grid;gap:14px;justify-items:start;padding-top:0}
 .tag-aula{display:inline-flex;align-items:center;gap:8px;background:rgba(226,31,130,.16);border:1px solid rgba(255,79,166,.55);color:#FFD9E6;font-family:var(--fd);font-weight:800;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:999px}
 .tag-aula::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mag2);box-shadow:0 0 10px var(--mag2)}
 .hero h1{font-size:clamp(1.5rem,3.2vw,2.25rem);font-weight:900;line-height:1.16;max-width:520px}
 .hero .sub{color:var(--mut);font-size:1.02rem;max-width:480px}
 .hero .form{width:100%;max-width:460px}
 @media(max-width:860px){
-  .hero{padding-block:10px 44px}
-  .hero-grid{grid-template-columns:1fr;gap:16px}
+  .hero{padding-block:24px 44px}
+  .hero-grid{grid-template-columns:1fr;gap:12px}
+  .logo-placa{border-radius:16px}
   .lockup{width:min(220px,62vw)}
-  .hero-txt{justify-items:center;text-align:center;gap:8px}
+  .hero-txt{justify-items:center;text-align:center;gap:8px;padding-top:0}
   .hero h1{font-size:1.24rem}
   .hero .sub{display:none}
   .tag-aula{font-size:.64rem;padding:5px 11px}
 }
-@media(max-width:860px) and (max-height:720px){.lockup{width:min(170px,48vw)}.hero h1{font-size:1.12rem}.barra .cd b{font-size:1.3rem}}
+@media(max-width:860px) and (max-height:720px){.hero{padding-top:16px}.lockup{width:min(170px,48vw)}.hero h1{font-size:1.12rem}.barra .cd b{font-size:1.3rem}}
 
 /* foto da Day no estilo do mídia kit */
 .portrait{position:relative;width:62%;aspect-ratio:.8;display:flex;align-items:flex-end;justify-content:center}
 .portrait .arch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;height:86%;border-radius:46% 46% 26px 26px/38% 38% 12px 12px;background:linear-gradient(160deg,var(--mag),#5a1450);box-shadow:0 22px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);z-index:0}
 .portrait .arch::before{content:"";position:absolute;inset:8px;border:2px dashed rgba(255,255,255,.18);border-radius:44% 44% 20px 20px/36% 36% 10px 10px}
 .portrait .halo{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:140%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,79,166,.45),rgba(255,79,166,0) 62%);filter:blur(8px);z-index:0}
-.portrait .rings{position:absolute;left:50%;top:36%;transform:translate(-50%,-50%);width:118%;aspect-ratio:1;border:2px dotted rgba(255,255,255,.25);border-radius:50%;z-index:0;animation:spin 60s linear infinite}
-@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 .portrait img{position:relative;z-index:2;width:96%;height:auto;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent 98%);mask-image:linear-gradient(to bottom,#000 80%,transparent 98%);filter:drop-shadow(0 16px 24px rgba(0,0,0,.45))}
-.portrait .cf{position:absolute;z-index:3}
-.portrait .dot{width:14px;height:14px;background:var(--mag2);border-radius:50%;top:6%;right:-6%}
-.portrait .hollow{width:18px;height:18px;border:3px solid #FFD9E6;border-radius:50%;top:52%;left:-14%}
-.portrait .star{color:#FFD9E6;top:16%;left:-16%;width:22px;height:22px}
-@media(max-width:860px){.portrait .dot{width:10px;height:10px}.portrait .hollow{width:13px;height:13px;border-width:2px}.portrait .star{width:16px;height:16px}}
-@media (prefers-reduced-motion:reduce){.portrait .rings{animation:none}}
 
 /* formulário */
 .form{background:linear-gradient(180deg,#24122D,#190D20);border:1px solid var(--line);border-radius:20px;padding:24px 22px 26px;display:grid;gap:12px;box-shadow:0 0 0 1px rgba(226,31,130,.25),0 25px 60px -25px rgba(226,31,130,.55)}
 .form h3{font-size:1.02rem;font-weight:800;text-align:center}
-.form .data{text-align:center;font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.form .data{text-align:center;font-family:var(--fd);font-weight:700;font-size:.92rem;line-height:1.35;color:#F3E9F5}
 .form .data b{color:var(--mag2)}
-.form input{width:100%;font:inherit;font-size:16px;padding:15px 18px;border-radius:999px;border:0;background:#fff;color:#1d1020;outline:none}
+.form input{width:100%;font:inherit;font-size:16px;text-align:center;padding:15px 18px;border-radius:999px;border:0;background:#fff;color:#1d1020;outline:none}
+.form input::placeholder{color:#6E5A73;opacity:1}
 .form input:focus{box-shadow:0 0 0 3px var(--mag2)}
-.form button{white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.84rem,3.6vw,.98rem);letter-spacing:.02em;text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border:0;border-radius:999px;padding:17px 18px;cursor:pointer;box-shadow:0 10px 30px -8px rgba(32,194,91,.8);transition:transform .15s}
+.form button{white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.78rem,3.5vw,.98rem);letter-spacing:.02em;text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border:0;border-radius:999px;padding:17px 18px;cursor:pointer;box-shadow:0 10px 30px -8px rgba(32,194,91,.8);transition:transform .15s;display:flex;align-items:center;justify-content:center;gap:9px}
+.form button svg{flex:none;width:1.35em;height:1.35em}.form button .seta{width:1em;height:1em}
 .form button:active{transform:scale(.98)}
 .form button.enviando{opacity:.7}
 .form .micro{text-align:center;font-size:.78rem;color:#E6DCEA;margin-top:2px}
 .form .erro{color:#FF8FB8;font-size:.86rem;text-align:center;min-height:0}
+.form{grid-template-columns:minmax(0,1fr)}
+@media(max-width:420px){.form{padding:20px 14px 22px}.form button{padding:16px 12px;gap:7px;font-size:.78rem;letter-spacing:0}}
 .hp{position:absolute;left:-9999px}
 
 section{padding-block:64px}
@@ -145,7 +144,8 @@ section{padding-block:64px}
 .total .vista{font-family:var(--fd);font-weight:700;color:var(--txt)}
 .total .garantia{font-size:.86rem;color:var(--mut);margin-top:6px}
 .cta-c{text-align:center;margin-top:22px}
-.cta{display:inline-block;white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.84rem,3.6vw,1rem);text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border-radius:999px;padding:18px 26px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(32,194,91,.8)}
+.cta svg{flex:none;width:1.35em;height:1.35em}.cta .seta{width:1em;height:1em}
+.cta{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-family:var(--fd);font-weight:800;font-size:clamp(.84rem,3.6vw,1rem);text-transform:uppercase;color:#062b14;background:linear-gradient(180deg,#4BE287,var(--verde));border-radius:999px;padding:18px 26px;text-decoration:none;box-shadow:0 10px 30px -8px rgba(32,194,91,.8)}
 
 /* day */
 .day-grid{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:center}
@@ -179,24 +179,22 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
   <div class="wrap hero-grid">
     <div class="lockup">
       <div class="portrait">
-        <span class="halo"></span><span class="rings"></span><span class="arch"></span>
-        <i class="cf dot"></i><span class="cf hollow"></span>
-        <svg class="cf star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 5.8 5.6 10.8 12 12-6.4 1.2-11.4 6.2-12 12-.6-5.8-5.6-10.8-12-12C6.4 10.8 11.4 5.8 12 0z"/></svg>
+        <span class="halo"></span><span class="arch"></span>
         <img src="../assets/day-cut-bm.webp" alt="Dayane Dos Anjos" width="681" height="982">
       </div>
-      <img class="logo-bm" src="../assets/bm-logo-3d.webp" alt="Black Maternity" width="900" height="483">
+      <div class="logo-placa"><img class="logo-bm" src="../assets/bm-logo-3d-fundo.webp" alt="Black Maternity" width="900" height="483"></div>
     </div>
     <div class="hero-txt">
       <span class="tag-aula">Aula exclusiva no grupo VIP</span>
       <h1>Como se preparar para os <span class="mag">5 maiores desafios</span> da maternidade ainda na gestação</h1>
       <p class="sub">Coloque seu WhatsApp, entre no grupo de gestantes, assista à aula da Day e veja o maior combo da história antes de todo mundo.</p>
       <form class="form" data-lead="black-maternity" data-destino="entrando/" novalidate>
-        <span class="data">Próxima Black: <b data-data-black>terça, 10/11</b></span>
+        <span class="data">A aula será liberada no dia <b data-data-curta>10/11</b>, para participar preencha o campo abaixo:</span>
         <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input id="whats1" name="whatsapp" placeholder="Seu WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required aria-label="Seu WhatsApp com DDD">
         <span class="erro" role="alert"></span>
-        <button type="submit">Quero entrar no grupo VIP →</button>
-        <span class="micro">🔒 Entrada gratuita. Seu número fica só com a gente.</span>
+        <button type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Quero entrar no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+        <span class="micro">Preencha seu número certinho para conseguir participar do grupo</span>
       </form>
     </div>
   </div>
@@ -279,7 +277,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         <span class="vista">ou R$ 497 à vista</span>
         <span class="garantia">7 dias de garantia. Se não for pra você, devolvemos tudo.</span>
       </div>
-      <div class="cta-c"><a class="cta" href="#entrar">Quero entrar no grupo VIP →</a></div>
+      <div class="cta-c"><a class="cta" href="#entrar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Quero entrar no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
     </div>
   </div>
 </section>
@@ -309,7 +307,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
       <input class="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input id="whats2" name="whatsapp" placeholder="Seu WhatsApp com DDD" inputmode="tel" autocomplete="tel-national" required aria-label="Seu WhatsApp com DDD">
       <span class="erro" role="alert"></span>
-      <button type="submit">Quero entrar no grupo VIP →</button>
+      <button type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Quero entrar no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
     </form>
   </div>
 </section>
