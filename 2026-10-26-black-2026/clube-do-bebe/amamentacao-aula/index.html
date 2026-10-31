@@ -71,7 +71,7 @@ h2{line-height:1.2}
 
 /* foto da Day no estilo do mídia kit */
 .portrait{position:relative;width:70%;aspect-ratio:.8;display:flex;align-items:flex-end;justify-content:center}
-.portrait .arch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;height:86%;border-radius:46% 46% 26px 26px/38% 38% 12px 12px;background:linear-gradient(160deg,var(--mag),#3E5C4E);box-shadow:0 22px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);z-index:0}
+.portrait .arch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;height:86%;border-radius:46% 46% 26px 26px/38% 38% 12px 12px;background:linear-gradient(160deg,var(--mag),#6E9A82);box-shadow:0 22px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);z-index:0}
 .portrait .arch::before{content:"";position:absolute;inset:8px;border:2px dashed rgba(255,255,255,.18);border-radius:44% 44% 20px 20px/36% 36% 10px 10px}
 .portrait .halo{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:140%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(191,221,198,.45),rgba(191,221,198,0) 62%);filter:blur(8px);z-index:0}
 .portrait .rings{position:absolute;left:50%;top:36%;transform:translate(-50%,-50%);width:118%;aspect-ratio:1;border:2px dotted rgba(255,255,255,.28);border-radius:50%;z-index:0;animation:spin 40s linear infinite}
@@ -126,7 +126,7 @@ section{padding-block:64px}
 .aula-grid{display:grid;grid-template-columns:400px 1fr;gap:48px;align-items:center}
 .aula p b{color:#D4EBDA;font-size:1.1em}
 .lockup-aula{width:min(380px,100%);padding-top:30px}
-.lockup-aula .arch{background:linear-gradient(160deg,#7FA48F,#16241F)}
+.lockup-aula .arch{background:linear-gradient(160deg,#A4C7AE,#5E8A73)}
 .lockup-aula .portrait{width:74%}
 .lockup-aula .portrait img{width:100%}
 .placa-aula{width:78%;margin-top:-20%;padding:14px 10px;border-radius:18px;text-align:center;background:linear-gradient(160deg,#1C2C25,#0C1411);box-shadow:0 0 0 2px #BFDDC6,0 0 18px rgba(191,221,198,.75),inset 0 0 16px rgba(191,221,198,.35),0 16px 34px rgba(0,0,0,.55);animation:neon-caixa 3s ease-in-out infinite}
@@ -243,7 +243,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 @media(min-width:861px){.topo-logo{padding-bottom:26px}}
 .topo-logo img{width:min(250px,60vw);height:auto;filter:drop-shadow(0 6px 22px rgba(0,0,0,.45))}
 @media(max-width:860px){.topo-logo img{width:min(170px,46vw)}.hero{padding-top:16px}}
-.portrait img{width:84%}
+.portrait img{width:84%;filter:drop-shadow(0 10px 16px rgba(0,0,0,.14))}
 .lockup-day .portrait img{width:84%;margin-inline:0}
 .portrait img.day-ebook{width:100%;margin-left:-10%;transform:translateY(11%)}
 .capa-ebook{left:62%;bottom:49%}
