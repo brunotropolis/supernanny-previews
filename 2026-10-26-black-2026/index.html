@@ -123,11 +123,33 @@ details.modelos[open] summary{margin-bottom:18px}
 .grupo pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;line-height:1.5;background:rgba(127,127,127,.08);border-radius:12px;padding:14px;margin:0;max-height:340px;overflow:auto}
 .grupo .acoes{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .grupo .acoes a,.grupo .acoes button{font:inherit;font-size:.86rem;font-weight:700;border:1px solid var(--line,#ccc);background:none;color:inherit;border-radius:999px;padding:8px 14px;cursor:pointer;text-decoration:none}
-.noar{border:2px solid #20C25B;border-radius:18px;padding:18px 20px;margin:0 auto 10px;max-width:980px;display:grid;gap:8px}
-.noar h3{font-size:1.05rem}
-.noar ul{list-style:none;padding:0;display:grid;gap:6px;font-size:.92rem}
-.noar a{color:inherit;font-weight:700}
-.noar span{color:var(--mut,#888)}
+.noar{background:#0C0710;color:#fff;border-radius:24px;padding:24px;display:grid;gap:20px;box-shadow:0 24px 50px -28px rgba(26,20,32,.6);background-image:radial-gradient(45% 60% at 100% 0%,rgba(226,31,130,.22),transparent 70%),radial-gradient(40% 60% at 0% 100%,rgba(109,42,136,.3),transparent 70%)}
+.noar-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.noar-top h3{font-size:1.3rem;font-weight:900}
+.aovivo{display:inline-flex;align-items:center;gap:8px;font-family:var(--fd);font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#7CF0A4;background:rgba(32,194,91,.12);border:1px solid rgba(32,194,91,.35);padding:5px 12px;border-radius:999px}
+.aovivo i{width:8px;height:8px;border-radius:50%;background:#20C25B;box-shadow:0 0 0 0 rgba(32,194,91,.7);animation:pulso 2s infinite}
+@keyframes pulso{70%{box-shadow:0 0 0 8px rgba(32,194,91,0)}100%{box-shadow:0 0 0 0 rgba(32,194,91,0)}}
+@media(prefers-reduced-motion:reduce){.aovivo i{animation:none}}
+.frentes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.frentes{grid-template-columns:1fr}}
+.frente{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:16px;display:grid;gap:10px;align-content:start}
+.frente-nome{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:2px 4px 6px}
+.frente-nome b{font-family:var(--fd);font-weight:900;font-size:1rem;display:flex;align-items:center;gap:8px}
+.frente-nome b i{width:10px;height:10px;border-radius:3px}
+.frente-nome span{font-size:.78rem;color:#B9AEC2;font-weight:700}
+.lk{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:8px 8px 8px 8px;text-decoration:none;color:#fff;transition:background .15s,border-color .15s}
+.lk:hover{background:rgba(255,255,255,.1);border-color:var(--cor,#fff)}
+.lk img{width:52px;height:52px;border-radius:10px;object-fit:cover;object-position:top;background:#222}
+.lk-txt{min-width:0;display:grid;gap:1px}
+.lk-txt b{font-family:var(--fd);font-weight:800;font-size:.92rem;line-height:1.25}
+.lk-txt small{font-size:.78rem;color:#9C90A6;font-weight:600;overflow-wrap:anywhere;line-height:1.35}
+.lk-txt small em{font-style:normal;color:var(--cor,#FF8CC0);font-weight:800}
+.lk.destaque{background:linear-gradient(135deg,rgba(212,26,120,.35),rgba(109,42,136,.3));border-color:rgba(255,79,166,.5)}
+.copiar-lk{font:inherit;font-size:.76rem;font-weight:800;font-family:var(--fd);color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.copiar-lk:hover{background:var(--cor,var(--mag));border-color:transparent}
+.copiar-lk.ok{background:#20C25B;border-color:transparent}
+.copiar-lk:focus-visible,.lk:focus-visible{outline:3px solid var(--cor,var(--mag));outline-offset:2px}
+@media(max-width:420px){.noar{padding:16px;border-radius:20px}.frente{padding:12px}.lk{grid-template-columns:44px 1fr auto;gap:10px}.lk img{width:44px;height:44px}.copiar-lk{padding:7px 10px}}
 </style>
 </head>
 <body>
@@ -152,16 +174,22 @@ details.modelos[open] summary{margin-bottom:18px}
 <main class="wrap">
 
 <section class="noar-sec"><div class="noar">
-  <h3>🟢 Links no ar (domínio definitivo)</h3>
-  <ul>
-    <li><a href="https://black.manualdorecemnascido.com.br/">black.manualdorecemnascido.com.br</a> <span>página de vendas (link da bio)</span></li>
-    <li><a href="https://black.manualdorecemnascido.com.br/aula">black.manualdorecemnascido.com.br/aula</a> <span>isca da aula</span></li>
-    <li><a href="https://black.manualdorecemnascido.com.br/enxoval">black.manualdorecemnascido.com.br/enxoval</a> <span>isca do ebook Enxoval</span></li>
-    <li><a href="https://clube.manualdorecemnascido.com.br/sono">clube.manualdorecemnascido.com.br/sono</a> <span>isca da aula de autonomia de sono</span></li>
-    <li><a href="https://clube.manualdorecemnascido.com.br/ebook-sono">clube.manualdorecemnascido.com.br/ebook-sono</a> <span>isca do ebook do sono</span></li>
-    <li><a href="https://clube.manualdorecemnascido.com.br/amamentacao">clube.manualdorecemnascido.com.br/amamentacao</a> <span>isca da aula mamando ou chupetando</span></li>
-    <li><a href="https://clube.manualdorecemnascido.com.br/ebook-amamentacao">clube.manualdorecemnascido.com.br/ebook-amamentacao</a> <span>isca do ebook de amamentação</span></li>
-  </ul>
+  <div class="noar-top"><h3>Links no ar</h3><span class="aovivo"><i></i>Domínio definitivo</span></div>
+  <div class="frentes">
+    <div class="frente">
+      <div class="frente-nome"><b><i style="background:#FF4FA6"></i>Black Maternity</b><span>gestantes</span></div>
+      <div class="lk destaque" style="--cor:#FF4FA6"><img src="thumbs/bm-pagina-vendas.webp" alt="" loading="lazy"><a class="lk-txt" href="https://black.manualdorecemnascido.com.br/" style="text-decoration:none;color:inherit"><b>Página de vendas · link da bio</b><small><em>black.manualdorecemnascido.com.br</em></small></a><button type="button" class="copiar-lk" data-url="https://black.manualdorecemnascido.com.br/">Copiar</button></div>
+      <div class="lk" style="--cor:#FF4FA6"><img src="thumbs/bm-isca-aula-v2.webp" alt="" loading="lazy"><a class="lk-txt" href="https://black.manualdorecemnascido.com.br/aula" style="text-decoration:none;color:inherit"><b>Isca da aula</b><small>black.manualdorecemnascido.com.br<em>/aula</em></small></a><button type="button" class="copiar-lk" data-url="https://black.manualdorecemnascido.com.br/aula">Copiar</button></div>
+      <div class="lk" style="--cor:#FF4FA6"><img src="thumbs/bm-isca-ebook-paleta-v2.webp" alt="" loading="lazy"><a class="lk-txt" href="https://black.manualdorecemnascido.com.br/enxoval" style="text-decoration:none;color:inherit"><b>Isca do ebook Enxoval</b><small>black.manualdorecemnascido.com.br<em>/enxoval</em></small></a><button type="button" class="copiar-lk" data-url="https://black.manualdorecemnascido.com.br/enxoval">Copiar</button></div>
+    </div>
+    <div class="frente">
+      <div class="frente-nome"><b><i style="background:#F7B8D2"></i>Clube do Bebê</b><span>mães com bebê</span></div>
+      <div class="lk" style="--cor:#F7B8D2"><img src="thumbs/cb-sono-aula.webp" alt="" loading="lazy"><a class="lk-txt" href="https://clube.manualdorecemnascido.com.br/sono" style="text-decoration:none;color:inherit"><b>Aula de autonomia de sono</b><small>clube.manualdorecemnascido.com.br<em>/sono</em></small></a><button type="button" class="copiar-lk" data-url="https://clube.manualdorecemnascido.com.br/sono">Copiar</button></div>
+      <div class="lk" style="--cor:#F7B8D2"><img src="thumbs/cb-sono-ebook.webp" alt="" loading="lazy"><a class="lk-txt" href="https://clube.manualdorecemnascido.com.br/ebook-sono" style="text-decoration:none;color:inherit"><b>Ebook do sono</b><small>clube.manualdorecemnascido.com.br<em>/ebook-sono</em></small></a><button type="button" class="copiar-lk" data-url="https://clube.manualdorecemnascido.com.br/ebook-sono">Copiar</button></div>
+      <div class="lk" style="--cor:#F7B8D2"><img src="thumbs/cb-amamentacao-aula.webp" alt="" loading="lazy"><a class="lk-txt" href="https://clube.manualdorecemnascido.com.br/amamentacao" style="text-decoration:none;color:inherit"><b>Aula mamando ou chupetando</b><small>clube.manualdorecemnascido.com.br<em>/amamentacao</em></small></a><button type="button" class="copiar-lk" data-url="https://clube.manualdorecemnascido.com.br/amamentacao">Copiar</button></div>
+      <div class="lk" style="--cor:#F7B8D2"><img src="thumbs/cb-amamentacao-ebook.webp" alt="" loading="lazy"><a class="lk-txt" href="https://clube.manualdorecemnascido.com.br/ebook-amamentacao" style="text-decoration:none;color:inherit"><b>Ebook de amamentação</b><small>clube.manualdorecemnascido.com.br<em>/ebook-amamentacao</em></small></a><button type="button" class="copiar-lk" data-url="https://clube.manualdorecemnascido.com.br/ebook-amamentacao">Copiar</button></div>
+    </div>
+  </div>
 </div></section>
 <section>
   <div class="sec-head">
@@ -440,6 +468,7 @@ Se alguém que não for administrador do grupo entrar em contato no privado, ofe
   </div>
 </section>
 <script>
+document.querySelectorAll('.copiar-lk').forEach(b=>b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(b.dataset.url);b.textContent='Copiado ✓';b.classList.add('ok');setTimeout(()=>{b.textContent='Copiar';b.classList.remove('ok')},1600)}catch(_){}}));
 document.querySelectorAll('[data-copiar]').forEach(b=>b.addEventListener('click',async()=>{
   const t=b.closest('.grupo').querySelector('pre').textContent;
   try{await navigator.clipboard.writeText(t);b.textContent='Copiado!';}catch(e){b.textContent='Selecione e copie';}
