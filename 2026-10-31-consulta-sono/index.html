@@ -21,7 +21,7 @@ h1,h2,h3{font-family:'Assistant',sans-serif;font-weight:800;line-height:1.1;text
 p{text-wrap:pretty}
 .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.foto img{width:min(470px,92%);margin:0 auto}
+.foto img{width:calc(min(470px,92%) * var(--f,1));margin:0 auto}
 .txt{font-size:17px;line-height:1.65;text-align:center}
 .txt+.txt{margin-top:14px}
 .claro{background:var(--cor);color:#fff}
@@ -31,16 +31,16 @@ p{text-wrap:pretty}
 .hero{padding:90px 0 110px;border-radius:0 0 50% 50%/0 0 46px 46px}
 .hero h1{color:var(--titulo-hero);font-size:clamp(26px,2.6vw,34px);text-align:center;max-width:520px;margin:0 auto 22px}
 .hero .txt{font-size:clamp(17px,1.65vw,22px);line-height:1.3;max-width:470px;margin:0 auto}
-@media(max-width:767px){.hero{padding:34px 0 50px;border-radius:0 0 50% 50%/0 0 30px 30px}.hero .foto img{width:min(250px,66%)}.hero h1{font-size:26px}}
+@media(max-width:767px){.hero{padding:34px 0 50px;border-radius:0 0 50% 50%/0 0 30px 30px}.hero .foto img{width:calc(min(250px,66%) * var(--f,1))}.hero h1{font-size:26px}}
 
 /* pra você */
 .pra-voce{padding:80px 0}
 .pra-voce h2{color:var(--cor);font-size:clamp(26px,2.4vw,34px);text-align:center;margin-bottom:12px}
 .pra-voce .txt{max-width:380px;margin:0 auto 22px}
 .lista{list-style:none;background:var(--cor2);max-width:500px;margin:0 auto;padding:6px 14px;border-radius:4px}
-.lista li{display:flex;gap:10px;align-items:center;color:#fff;font-size:15px;line-height:1.45;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,.35);text-align:left}
+.lista li{display:flex;gap:10px;align-items:flex-start;color:#fff;font-size:15px;line-height:1.45;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,.35);text-align:left}
 .lista li:last-child{border-bottom:0}
-.lista svg{width:20px;height:20px;flex-shrink:0;fill:var(--icone-lista)}
+.lista svg{width:20px;height:20px;flex-shrink:0;margin-top:1px;fill:var(--icone-lista)}
 
 /* como funciona */
 .como{padding:80px 0}
@@ -59,20 +59,20 @@ p{text-wrap:pretty}
 .quem>.wrap>h2{color:var(--cor);font-size:clamp(28px,3vw,40px);text-align:center;margin-bottom:22px}
 .card{background:var(--cor);color:#fff;border-radius:8px;padding:60px 50px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:1060px;margin:0 auto}
 .card .cols{grid-template-columns:.8fr 1.2fr;gap:36px}
-.card .foto img{width:min(400px,92%)}
+.card .foto img{width:calc(min(400px,92%) * var(--f,1))}
 .card h3{font-size:clamp(26px,2.8vw,40px);margin-bottom:18px}
 .card p{font-size:17px;line-height:1.6;margin-bottom:14px}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:900px;margin:24px auto 0;text-align:center}
 .stat svg{width:42px;height:42px;fill:var(--cor);margin:0 auto 4px}
 .stat .n{font-family:'Assistant',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,34px);color:var(--stat-num);line-height:1.05}
 .stat .l{font-size:15px;color:#333}
-@media(max-width:767px){.foto img{width:min(330px,84%)}.pra-voce h2{font-size:30px}.como h2{font-size:30px}.como h2.inc{font-size:26px}.quem>.wrap>h2{font-size:34px}.faq h2{font-size:30px}.lista li{padding:12px 4px}.faq h2{margin-bottom:18px}.pra-voce,.como,.preco{padding:50px 0}.quem{padding:50px 0 34px}.faq{padding:50px 0 70px}footer{padding:50px 16px}footer h3{font-size:15px}footer p{font-size:14px}.faq-q{font-size:15px;padding:13px 14px}.btn{font-size:18px;padding:24px 16px;max-width:360px}.preco .txt,.preco .ate{font-size:16px}.card p{font-size:16px}.card h3{font-size:26px}.stat .n{font-size:24px}.stat svg{width:34px;height:34px}.card{padding:26px 18px}.card .cols{grid-template-columns:1fr;text-align:center;gap:18px}.card .foto img{width:min(210px,62%)}.stats{grid-template-columns:repeat(2,1fr);row-gap:16px}}
+@media(max-width:767px){.foto img{width:calc(min(330px,84%) * var(--f,1))}.pra-voce h2{font-size:30px}.como h2{font-size:30px}.como h2.inc{font-size:26px}.quem>.wrap>h2{font-size:34px}.faq h2{font-size:30px}.lista li{padding:12px 4px}.faq h2{margin-bottom:18px}.pra-voce,.como,.preco{padding:50px 0}.quem{padding:50px 0 34px}.faq{padding:50px 0 70px}footer{padding:50px 16px}footer h3{font-size:15px}footer p{font-size:14px}.faq-q{font-size:15px;padding:13px 14px}.btn{font-size:18px;padding:24px 16px;max-width:360px}.preco .txt,.preco .ate{font-size:16px}.card p{font-size:16px}.card h3{font-size:26px}.stat .n{font-size:24px}.stat svg{width:34px;height:34px}.card{padding:26px 18px}.card .cols{grid-template-columns:1fr;text-align:center;gap:18px}.card .foto img{width:calc(min(210px,62%) * var(--f,1))}.stats{grid-template-columns:repeat(2,1fr);row-gap:16px}}
 
 /* preço */
 .preco{padding:80px 0}
 .preco .txt{max-width:380px;margin:0 auto;font-size:18px}
 .preco .ate{text-align:center;font-size:18px;margin-top:22px}
-.parcela{display:block;width:fit-content;margin:8px auto 6px;background:var(--preco-fundo);color:var(--preco-cor);font-family:'Assistant',sans-serif;font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1;padding:9px 18px;border-radius:9px}
+.parcela{display:block;width:100%;max-width:360px;text-align:center;margin:12px auto 8px;background:var(--preco-fundo);color:var(--preco-cor);font-family:'Assistant',sans-serif;font-weight:800;font-size:clamp(30px,3vw,40px);line-height:1;padding:9px 18px;border-radius:9px}
 .vista{text-align:center;font-size:17px}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;max-width:380px;margin:20px auto 0;background:var(--verde);color:#fff;text-decoration:none;font-family:'Assistant',sans-serif;font-weight:800;font-size:22px;text-align:center;line-height:1.2;padding:30px 24px;border-radius:22px;box-shadow:0 0 10px rgba(0,0,0,.5);transition:transform .2s ease,filter .2s ease;user-select:none;-webkit-user-select:none}
 @media(hover:hover){.btn:hover{transform:scale(1.03);filter:brightness(1.06)}}
@@ -100,7 +100,7 @@ footer h3{font-family:'Quicksand',sans-serif;font-weight:700;font-size:22px;marg
 footer p{font-size:16px}
 .whats{position:fixed;right:18px;bottom:18px;bottom:max(18px,env(safe-area-inset-bottom));z-index:50;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .whats svg{width:30px;height:30px;fill:#fff}
-.btn .mao{width:20px;height:22px;fill:#fff;margin-left:8px;flex-shrink:0}
+.btn .mao{width:20px;height:22px;fill:#fff;margin-left:8px;flex-shrink:0;position:relative;top:1px}
 img.emoji{display:inline;width:1em;height:1em;vertical-align:-.12em;margin-right:.25em}
 footer p{line-height:1.35}
 
@@ -111,20 +111,21 @@ footer p{line-height:1.35}
   .card{max-width:none;padding:60px 50px}
   .card .cols{grid-template-columns:.75fr 1.25fr;gap:30px}
   .stats{max-width:1040px}
-  .foto img{width:550px;max-width:100%}
-  .card .foto img{width:421px}
+  .foto img{width:calc(550px * var(--f,1));max-width:100%}
+  .card .foto img{width:calc(421px * var(--f,1))}
   .hero{padding:0;min-height:670px;display:flex;align-items:center}
   .hero h1{font-size:50px;max-width:550px}
   .hero .txt{font-size:27px;line-height:1.04;max-width:523px}
   .pra-voce{padding:0;min-height:620px;display:flex;align-items:center}
   .pra-voce h2{font-size:32px}
-  .pra-voce .txt{font-size:20px;line-height:31px;max-width:435px}
+  .pra-voce .txt{font-size:20px;line-height:31px;max-width:495px}
   .lista{max-width:495px}.lista li{font-size:16px}
   .como{padding:70px 0}
   .como h2{font-size:63px;max-width:550px;margin-left:auto;margin-right:auto}
   .como h2.inc{font-size:32px}
-  .como .txt{font-size:20px;line-height:28px;max-width:523px}
+  .como .txt{font-size:20px;line-height:28px;max-width:495px}
   .inclusos{max-width:495px}.inclusos li{font-size:15px}
+  .idade{width:100%;max-width:495px}
   .idade,.atencao{font-size:20px}.atencao b{font-size:20px}
   .quem{padding:70px 0 50px}
   .quem>.wrap>h2{font-size:63px}
@@ -132,9 +133,10 @@ footer p{line-height:1.35}
   .card p{font-size:20px;line-height:30px}
   .stat .n{font-size:36px}
   .preco{padding:0;min-height:670px;display:flex;align-items:center}
-  .preco .txt,.preco .ate,.vista{font-size:20px;line-height:28px;max-width:429px}
+  .preco .txt,.preco .ate,.vista{font-size:20px;line-height:28px;max-width:430px;margin-left:auto;margin-right:auto}
+  .btn,.parcela{max-width:430px}
   .parcela{font-size:48px}
-  .btn{font-size:24px;max-width:426px;min-height:98px}
+  .btn{font-size:24px;min-height:98px}
   .faq{padding:90px 0 120px}
   .faq h2{font-size:50px}
   .faq-q{font-size:16px;min-height:60px}
@@ -145,25 +147,25 @@ footer p{line-height:1.35}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-female" viewBox="0 0 256 512"><path d="M128 0c35.346 0 64 28.654 64 64s-28.654 64-64 64c-35.346 0-64-28.654-64-64S92.654 0 128 0m119.283 354.179l-48-192A24 24 0 0 0 176 144h-11.36c-22.711 10.443-49.59 10.894-73.28 0H80a24 24 0 0 0-23.283 18.179l-48 192C4.935 369.305 16.383 384 32 384h56v104c0 13.255 10.745 24 24 24h32c13.255 0 24-10.745 24-24V384h56c15.591 0 27.071-14.671 23.283-29.821z"></path></symbol><symbol id="i-youtube" viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></symbol><symbol id="i-instagram" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></symbol><symbol id="i-tiktok" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></symbol><symbol id="i-check" viewBox="0 0 512 512"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></symbol><symbol id="i-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></symbol><symbol id="i-caret" viewBox="0 0 192 512"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></symbol><symbol id="i-hand" viewBox="0 0 448 512"><path d="M105.6 83.2v86.177a115.52 115.52 0 0 0-22.4-2.176c-47.914 0-83.2 35.072-83.2 92 0 45.314 48.537 57.002 78.784 75.707 12.413 7.735 23.317 16.994 33.253 25.851l.146.131.148.129C129.807 376.338 136 384.236 136 391.2v2.679c-4.952 5.747-8 13.536-8 22.12v64c0 17.673 12.894 32 28.8 32h230.4c15.906 0 28.8-14.327 28.8-32v-64c0-8.584-3.048-16.373-8-22.12V391.2c0-28.688 40-67.137 40-127.2v-21.299c0-62.542-38.658-98.8-91.145-99.94-17.813-12.482-40.785-18.491-62.791-15.985A93.148 93.148 0 0 0 272 118.847V83.2C272 37.765 234.416 0 188.8 0c-45.099 0-83.2 38.101-83.2 83.2zm118.4 0v91.026c14.669-12.837 42.825-14.415 61.05 4.95 19.646-11.227 45.624-1.687 53.625 12.925 39.128-6.524 61.325 10.076 61.325 50.6V264c0 45.491-35.913 77.21-39.676 120H183.571c-2.964-25.239-21.222-42.966-39.596-59.075-12.65-11.275-25.3-21.725-39.875-30.799C80.712 279.645 48 267.994 48 259.2c0-23.375 8.8-44 35.2-44 35.2 0 53.075 26.4 70.4 26.4V83.2c0-18.425 16.5-35.2 35.2-35.2 18.975 0 35.2 16.225 35.2 35.2zM352 424c13.255 0 24 10.745 24 24s-10.745 24-24 24-24-10.745-24-24 10.745-24 24-24z"></path></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-female" viewBox="0 0 256 512" preserveAspectRatio="xMidYMax meet"><path d="M128 0c35.346 0 64 28.654 64 64s-28.654 64-64 64c-35.346 0-64-28.654-64-64S92.654 0 128 0m119.283 354.179l-48-192A24 24 0 0 0 176 144h-11.36c-22.711 10.443-49.59 10.894-73.28 0H80a24 24 0 0 0-23.283 18.179l-48 192C4.935 369.305 16.383 384 32 384h56v104c0 13.255 10.745 24 24 24h32c13.255 0 24-10.745 24-24V384h56c15.591 0 27.071-14.671 23.283-29.821z"></path></symbol><symbol id="i-youtube" viewBox="0 0 576 512" preserveAspectRatio="xMidYMax meet"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></symbol><symbol id="i-instagram" viewBox="0 0 448 512" preserveAspectRatio="xMidYMax meet"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></symbol><symbol id="i-tiktok" viewBox="0 0 448 512" preserveAspectRatio="xMidYMax meet"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"></path></symbol><symbol id="i-check" viewBox="0 0 512 512"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path></symbol><symbol id="i-whatsapp" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></symbol><symbol id="i-caret" viewBox="0 0 192 512"><path d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></symbol><symbol id="i-hand" viewBox="0 0 448 512"><path d="M105.6 83.2v86.177a115.52 115.52 0 0 0-22.4-2.176c-47.914 0-83.2 35.072-83.2 92 0 45.314 48.537 57.002 78.784 75.707 12.413 7.735 23.317 16.994 33.253 25.851l.146.131.148.129C129.807 376.338 136 384.236 136 391.2v2.679c-4.952 5.747-8 13.536-8 22.12v64c0 17.673 12.894 32 28.8 32h230.4c15.906 0 28.8-14.327 28.8-32v-64c0-8.584-3.048-16.373-8-22.12V391.2c0-28.688 40-67.137 40-127.2v-21.299c0-62.542-38.658-98.8-91.145-99.94-17.813-12.482-40.785-18.491-62.791-15.985A93.148 93.148 0 0 0 272 118.847V83.2C272 37.765 234.416 0 188.8 0c-45.099 0-83.2 38.101-83.2 83.2zm118.4 0v91.026c14.669-12.837 42.825-14.415 61.05 4.95 19.646-11.227 45.624-1.687 53.625 12.925 39.128-6.524 61.325 10.076 61.325 50.6V264c0 45.491-35.913 77.21-39.676 120H183.571c-2.964-25.239-21.222-42.966-39.596-59.075-12.65-11.275-25.3-21.725-39.875-30.799C80.712 279.645 48 267.994 48 259.2c0-23.375 8.8-44 35.2-44 35.2 0 53.075 26.4 70.4 26.4V83.2c0-18.425 16.5-35.2 35.2-35.2 18.975 0 35.2 16.225 35.2 35.2zM352 424c13.255 0 24 10.745 24 24s-10.745 24-24 24-24-10.745-24-24 10.745-24 24-24z"></path></symbol></svg>
 
 <section class="hero claro">
   <div class="wrap cols">
-    <div class="foto"><img src="cs-assets/hero.webp" alt="Consulta de sono com Dayane dos Anjos" width="760" height="760" fetchpriority="high"></div>
+    <div class="foto"><img src="cs-assets/hero.webp" alt="Consulta de sono com Dayane dos Anjos" width="542" height="696" style="--f:0.7132" fetchpriority="high"></div>
     <div><h1>1 hora para entender, organizar e transformar o sono do seu bebê</h1><p class="txt">Se você quer saber o que está acontecendo com o sono do seu bebê e precisa de uma orientação prática e personalizada, <strong>essa consulta é pra você.</strong></p></div>
   </div>
 </section>
 
 <section class="pra-voce">
   <div class="wrap cols">
-    <div class="foto"><img src="cs-assets/pra-voce.webp" alt="" width="760" height="760" loading="lazy" decoding="async"></div>
+    <div class="foto"><img src="cs-assets/pra-voce.webp" alt="" width="611" height="563" style="--f:0.8039" loading="lazy" decoding="async"></div>
     <div><h2>Essa consulta é pra você que:</h2><p class="txt">Se você se identifica com alguma das situações abaixo, essa consulta pode ser exatamente o que você está procurando:</p><ul class="lista"><li><svg><use href="#i-check"/></svg>Está insegura sobre o que está fazendo de errado</li><li><svg><use href="#i-check"/></svg>Já testou dicas da internet, mas nada parece funcionar</li><li><svg><use href="#i-check"/></svg>Sente que o bebê só dorme no colo ou acorda o tempo todo</li><li><svg><use href="#i-check"/></svg>Quer um plano de ação pronto, feito sob medida, e que funcione de forma gentil</li><li><svg><use href="#i-check"/></svg>Não quer um curso agora, quer alguém que analise o caso e diga o que fazer</li></ul></div>
   </div>
 </section>
 
 <section class="como claro">
   <div class="wrap cols">
-    <div class="foto"><img src="cs-assets/como-funciona.webp" alt="Consulta por videochamada" width="760" height="760" loading="lazy" decoding="async"></div>
+    <div class="foto"><img src="cs-assets/como-funciona.webp" alt="Consulta por videochamada" width="502" height="663" style="--f:0.6605" loading="lazy" decoding="async"></div>
     <div><h2>COMO FUNCIONA A CONSULTA</h2><p class="txt">Durante essa hora juntas, você vai ter um espaço seguro para contar tudo que está vivendo com o sono do seu bebê. Eu vou te ouvir com atenção, analisar cada detalhe e montar um plano de ação claro, realista e respeitoso com a sua rotina.</p><p class="txt"><strong>Você não vai sair com mais dúvidas, vai sair com direção, acolhimento e a confiança de que está no caminho certo.</strong></p><h2 class="inc">O QUE ESTÁ INCLUSO</h2><ul class="inclusos"><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/2705.svg" alt="✅" width="16" height="16"> 1 hora de consulta por videochamada comigo</li><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/2705.svg" alt="✅" width="16" height="16"> Avaliação detalhada do seu caso</li><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/2705.svg" alt="✅" width="16" height="16"> Um plano de ação objetivo e realista para aplicar no dia a dia</li><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/2705.svg" alt="✅" width="16" height="16"> Espaço para tirar suas dúvidas e alinhar estratégias específicas</li><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/1f49b.svg" alt="💛" width="16" height="16"> + 30 dias de acompanhamento no whatsapp com minha equipe</li><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/1f4d8.svg" alt="📘" width="16" height="16"> Ebook Entre Sonecas</li><li><img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/1f4d7.svg" alt="📗" width="16" height="16"> Ebook Rotina do Bebê</li></ul><p class="idade">a consulta é para bebês de 0 até 12 meses</p><p class="atencao"><b>ATENÇÃO</b>assim que você finalizar a inscrição, receberá em seu whatsapp e e-mail o acesso para agendar a consulta diretamente com minha equipe <img class="emoji" src="https://s.w.org/images/core/emoji/16.0.1/svg/1f970.svg" alt="🥰" width="16" height="16"></p></div>
   </div>
 </section>
@@ -172,7 +174,7 @@ footer p{line-height:1.35}
   <div class="wrap">
     <h2>QUEM VAI TE ATENDER</h2>
     <div class="card"><div class="cols">
-      <div class="foto"><img src="cs-assets/dayane.webp" alt="Dayane dos Anjos" width="760" height="760" loading="lazy" decoding="async"></div>
+      <div class="foto"><img src="cs-assets/dayane.webp" alt="Dayane dos Anjos" width="549" height="605" style="--f:0.7224" loading="lazy" decoding="async"></div>
       <div><h3>DAYANE DOS ANJOS</h3><p>Sou consultora de sono, amamentação, e cuidados com o bebê. Sou completamente apaixonada por bebês e tudo que se refere a eles.</p><p>Sei que a maternidade é uma jornada cheia de desafios e descobertas, e ensinar seu pequeno a dormir bem e no berço pode parecer uma tarefa difícil ou até impossível. Mas não se preocupe, estou aqui para te guiar com muito carinho, os bebês são muito inteligentes e aprendem muito rápido!</p><p>Se conduzimos com carinho logo ele se adapta, e logo vocês dois poderão ter bons momentos de descanso. E assim muitos mais momentos de interação e conexão, com vocês dois muito mais dispostos e descansados.</p></div>
     </div></div>
     <div class="stats"><div class="stat"><svg><use href="#i-female"/></svg><div class="n">+21.000</div><div class="l">alunas</div></div><div class="stat"><svg><use href="#i-youtube"/></svg><div class="n">+799.000</div><div class="l">inscritos</div></div><div class="stat"><svg><use href="#i-instagram"/></svg><div class="n">+625.000</div><div class="l">seguidores</div></div><div class="stat"><svg><use href="#i-tiktok"/></svg><div class="n">+651.000</div><div class="l">seguidores</div></div></div>
@@ -181,7 +183,7 @@ footer p{line-height:1.35}
 
 <section class="preco claro" id="preco">
   <div class="wrap cols">
-    <div class="foto"><img src="cs-assets/preco.webp" alt="Dayane dos Anjos" width="760" height="760" loading="lazy" decoding="async"></div>
+    <div class="foto"><img src="cs-assets/preco.webp" alt="Dayane dos Anjos" width="668" height="642" style="--f:0.8789" loading="lazy" decoding="async"></div>
     <div>
       <p class="txt">Você vai sair da consulta sabendo exatamente o que fazer, com leveza, confiança e muito mais clareza sobre o que o seu bebê precisa.</p>
       <p class="ate">investimento pode ser feito em até:</p>
