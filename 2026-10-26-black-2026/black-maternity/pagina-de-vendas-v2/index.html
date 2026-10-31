@@ -243,6 +243,10 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .hero .cta-c{margin-top:14px;text-align:left}
 @media(max-width:860px){.hero .cta-c{text-align:center}.hero h1{font-size:1.32rem}.hero .desc{font-size:.96rem}}
 #jornada{scroll-margin-top:10px}
+/* Day maior no topo */
+.hero .lockup{width:min(480px,100%)}
+.hero .portrait{width:90%}
+@media(max-width:860px){.hero .lockup{width:min(280px,78vw)}.hero .portrait{width:86%}}
 .jornada{background:linear-gradient(180deg,var(--bg) 0%,#1F0A2C 100%)}
 .passos{display:grid;gap:34px;max-width:960px;margin:0 auto;position:relative}
 /* linha neon suave ligando as fases */
@@ -275,16 +279,21 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .atencao p{color:var(--txt)}
 @media (prefers-reduced-motion:reduce){.atencao,.passos::before{animation:none}}
 .oferta .caixa{max-width:560px;padding:28px 22px;gap:14px;box-shadow:0 0 0 2px rgba(255,79,166,.55),0 30px 70px -30px rgba(226,31,130,.7)}
-.recebe{list-style:none;padding:0;display:grid;gap:9px}
-.recebe li{display:flex;gap:10px;align-items:center;font-weight:700}
+.recebe{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:10px}
+.recebe li{display:flex;gap:9px;align-items:center;font-weight:700;font-size:.92rem;line-height:1.25;padding:12px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,79,166,.32)}
 .recebe svg{flex:none;width:20px;height:20px;color:#4BE287}
+@media(max-width:420px){.recebe li{font-size:.8rem;padding:10px 8px;gap:6px}.recebe svg{width:16px;height:16px}}
 .oferta .de{font-size:clamp(1.1rem,4vw,1.4rem)}
-.oferta .parc{font-family:var(--fd);font-weight:900;font-size:clamp(2.3rem,10vw,3.4rem);line-height:1;color:#fff}
-.oferta .parc small{font-size:.42em;font-weight:800;color:var(--mut)}
+.oferta .parc{font-family:var(--fd);font-weight:900;font-size:clamp(3.1rem,14vw,4.6rem);line-height:1;color:#fff}
+.oferta .parc{display:grid;justify-items:center;gap:4px}
+.oferta .parc small{font-size:.3em;font-weight:800;color:var(--mut)}
+.oferta .parc b{white-space:nowrap;font-weight:900}
 .oferta .vista{font-size:1.05rem}
 .garantias{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 16px;font-size:.8rem;color:var(--mut);margin-top:4px}
 .garantias span{display:inline-flex;align-items:center;gap:5px}
 .garantias svg{width:15px;height:15px;color:#4BE287}
+@media(max-width:760px){.garantias{flex-direction:column;align-items:center;gap:6px}}
+.atencao .off span{white-space:nowrap}
 .faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
 .faq summary{cursor:pointer;font-family:var(--fd);font-weight:800;font-size:.98rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
@@ -328,7 +337,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     </div>
     <div class="passos">
       <article class="passo">
-        <div class="p-img"><img src="../../assets/bm-jornada-1.webp" alt="Mãe grávida arrumando as roupinhas do enxoval" style="object-position:50% 35%" loading="lazy" width="800" height="1000"><span class="p-num">1</span></div>
+        <div class="p-img"><img src="../../assets/bm-jornada-1.webp" alt="Mãe grávida olhando uma roupinha do enxoval" style="object-position:50% 35%" loading="lazy" width="800" height="1000"><span class="p-num">1</span></div>
         <div class="p-txt">
           <span class="eyebrow">Na gestação</span>
           <h3>Preparada para a chegada do bebê</h3>
@@ -436,22 +445,22 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
   <div class="wrap">
     <div class="atencao">
       <b class="t">Atenção</b>
-      <span class="off">Mais de 70% de desconto</span>
+      <span class="off"><span>Mais de 70%</span> <span>de desconto</span></span>
       <p>Essa é a oferta mais completa que a Day já fez. Quando a Black Maternity acabar, o valor volta ao normal e o acompanhamento de 1 ano deixa de fazer parte do pacote.</p>
     </div>
     <div class="titulo" style="margin-top:44px"><span class="eyebrow">Tudo o que você vai receber</span><h2>Black Maternity</h2></div>
     <div class="caixa">
       <ul class="recebe">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>12 cursos completos, com acesso imediato</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>12 cursos completos</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>8 ebooks exclusivos</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ano de acompanhamento no WhatsApp</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Grupo do enxoval com cupons</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 anos de acesso a tudo</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ano de acompanhamento</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Grupo de cupons do enxoval</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 anos de acesso</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>7 dias de garantia</li>
       </ul>
       <div class="total">
         <span class="de">de R$ 2.770 por</span>
-        <span class="parc"><small>12x de</small> R$ 51,10</span>
+        <span class="parc"><small>12x de</small><b>R$ 51,10</b></span>
         <span class="vista">ou R$ 497 à vista</span>
       </div>
       <div class="cta-c"><a class="cta" href="https://payfast.greenn.com.br/143822/offer/4uxUNo?utm_source=bio&utm_medium=pagina-vendas&utm_campaign=black-maternity-2026"><span>Eu quero agora</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
