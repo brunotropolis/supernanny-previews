@@ -96,6 +96,7 @@ window.CONFIG = {
         erro.textContent = '';
         if (nome && nome.value.trim().length < 2) { erro.textContent = 'Escreve seu nome pra gente te chamar certinho.'; nome.focus(); return; }
         if (digitos.length < 10) { erro.textContent = 'Confere o WhatsApp com DDD, por favor.'; tel.focus(); return; }
+        ev('envio', { versao: form.dataset.versao || '' });
         const btn = form.querySelector('button'); btn.disabled = true; btn.classList.add('enviando');
         const q = new URLSearchParams(location.search);
         const lead = {
@@ -111,6 +112,38 @@ window.CONFIG = {
     });
   }
 
-  window.BLACK = { proximaBlack, contador, formularios };
-  document.addEventListener('DOMContentLoaded', () => { contador(); formularios(); });
+  // Medidor próprio (dash "Black 2026" no hub conteudo): manda pro Worker do domínio (/__ev), que grava no Supabase.
+  // Só no domínio de verdade (na prévia do github.io não mede). Nada de nome ou WhatsApp: só página, botão, origem e aparelho.
+  const MEDE = /(^|\.)manualdorecemnascido\.com\.br$/.test(location.hostname);
+  const ss = (k, v) => { try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch (_) {} return null; };
+  const id = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
+  function ev(evento, extra) {
+    if (!MEDE) return;
+    let uid = null; try { uid = localStorage.getItem('bk_uid'); if (!uid) localStorage.setItem('bk_uid', uid = id()); } catch (_) {}
+    let sid = ss('bk_sid'); if (!sid) ss('bk_sid', sid = id());
+    const q = new URLSearchParams(location.search);
+    const o = q.get('utm_source') || q.get('origem') || q.get('rede');
+    if (o && !ss('bk_origem')) { ss('bk_origem', o); ss('bk_camp', q.get('utm_campaign') || ''); }
+    const ua = navigator.userAgent;
+    const corpo = Object.assign({
+      evento, page: location.pathname.replace(/index\.html$/, '').replace(/\/+$/, '') || '/',
+      origem: ss('bk_origem') || (document.referrer && !document.referrer.includes(location.hostname) ? new URL(document.referrer).hostname : ''),
+      campanha: ss('bk_camp') || '', sid, uid,
+      device: /iPad|Tablet/i.test(ua) ? 'tablet' : /Mobi|Android|iPhone/i.test(ua) ? 'mobile' : 'desktop',
+      os: /iPhone|iPad|Mac OS/i.test(ua) ? (/Mobi|iPhone|iPad/i.test(ua) ? 'ios' : 'mac') : /Android/i.test(ua) ? 'android' : /Windows/i.test(ua) ? 'windows' : 'outro'
+    }, extra || {});
+    try { navigator.sendBeacon('/__ev', new Blob([JSON.stringify(corpo)], { type: 'application/json' })); } catch (_) {}
+  }
+  function medir() {
+    ev('pageview');
+    document.addEventListener('click', e => {
+      const b = e.target.closest('a.cta, button[type=submit], a[href^="https://chat.whatsapp.com"]'); if (!b) return;
+      const sec = b.closest('[id], section, header, footer');
+      const onde = sec ? (sec.id || (sec.className || '').toString().split(' ')[0] || sec.tagName.toLowerCase()) : '';
+      ev('clique', { alvo: (b.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60) + (onde ? ' · ' + onde : '') });
+    }, true);
+  }
+
+  window.BLACK = { proximaBlack, contador, formularios, ev };
+  document.addEventListener('DOMContentLoaded', () => { contador(); formularios(); medir(); });
 })();
