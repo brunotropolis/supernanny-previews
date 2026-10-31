@@ -243,10 +243,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .hero .cta-c{margin-top:14px;text-align:left}
 @media(max-width:860px){.hero .cta-c{text-align:center}.hero h1{font-size:1.32rem}.hero .desc{font-size:.96rem}}
 #jornada{scroll-margin-top:10px}
-/* Day maior no topo */
-.hero .lockup{width:min(480px,100%)}
-.hero .portrait{width:90%}
-@media(max-width:860px){.hero .lockup{width:min(280px,78vw)}.hero .portrait{width:86%}}
+/* topo no celular: Day menor pra o botão e o começo da próxima seção caberem na primeira tela (computador fica como na v1) */
+@media(max-width:860px){.hero .lockup{width:min(190px,50vw);padding-top:14px}.hero{padding-block:14px 26px}.hero .desc{font-size:.9rem}.hero h1{font-size:1.2rem}}
 .jornada{background:linear-gradient(180deg,var(--bg) 0%,#1F0A2C 100%)}
 .passos{display:grid;gap:34px;max-width:960px;margin:0 auto;position:relative}
 /* linha neon suave ligando as fases */
