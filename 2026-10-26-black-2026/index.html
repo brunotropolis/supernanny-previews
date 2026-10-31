@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="icon" type="image/png" href="assets/favicon-bm.png"><link rel="apple-touch-icon" href="assets/favicon-bm.png">
+
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <title>Black 2026 · Páginas e logos</title>
@@ -109,6 +110,13 @@ footer{margin-top:64px;padding-block:28px calc(28px + env(safe-area-inset-bottom
 details.modelos{margin-top:30px;border:1px dashed var(--line,#ddd);border-radius:16px;padding:14px 18px}
 details.modelos summary{cursor:pointer;font-weight:800}
 details.modelos[open] summary{margin-bottom:18px}
+.grupos{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.grupos{grid-template-columns:1fr}}
+.grupo{border:1px solid var(--line,#ddd);border-radius:18px;padding:18px;display:grid;gap:14px;align-content:start}
+.grupo img{width:min(240px,70%);aspect-ratio:1;border-radius:50%;margin:0 auto;display:block}
+.grupo pre{white-space:pre-wrap;font-family:inherit;font-size:.86rem;line-height:1.5;background:rgba(127,127,127,.08);border-radius:12px;padding:14px;margin:0;max-height:340px;overflow:auto}
+.grupo .acoes{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.grupo .acoes a,.grupo .acoes button{font:inherit;font-size:.86rem;font-weight:700;border:1px solid var(--line,#ccc);background:none;color:inherit;border-radius:999px;padding:8px 14px;cursor:pointer;text-decoration:none}
 </style>
 </head>
 <body>
@@ -319,6 +327,80 @@ details.modelos[open] summary{margin-bottom:18px}
     </div>
   </div>
 </section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow" style="color:var(--mut)">WhatsApp</span>
+    <h2>Foto e descritivo dos grupos</h2>
+    <p>Foto de perfil (já cabe no círculo do WhatsApp) e o descritivo pronto pra colar em cada grupo novo.</p>
+  </div>
+  <div class="grupos">
+    <div class="grupo">
+      <h4>Black Maternity</h4>
+      <img src="logos/grupo/foto-grupo-black-maternity.png" alt="Foto do grupo Black Maternity" loading="lazy">
+      <div class="acoes"><a href="logos/grupo/foto-grupo-black-maternity.png" download>Baixar foto do grupo</a><button type="button" data-copiar>Copiar descritivo</button><a href="logos/grupo/descritivo-black-maternity.txt" download>Baixar .txt</a></div>
+      <pre>BLACK MATERNITY 💗
+
+Bem-vinda ao grupo VIP de gestantes da Day! Aqui você vai se preparar para a chegada do bebê e ver, antes de todo mundo, a nossa oportunidade de Black Friday.
+
+📘 Baixe agora seu ebook gratuito: &quot;Enxoval Descomplicado&quot;
+
+👉 https://ebookenxoval.manualdorecemnascido.com.br
+
+⚡ Na próxima terça-feira, a Day libera aqui no grupo a aula exclusiva:
+
+&quot;Como se preparar para os 5 maiores desafios da maternidade ainda na gestação&quot; 💕
+
+*IMPORTANTE* não é permitido:
+
+⛔ Postar fotos ou imagens de qualquer tipo
+⛔ Divulgar suas mídias sociais
+⛔ Mandar vídeos ou links de outros grupos
+⛔ Ofensas ou pornografia ocasionará na exclusão
+
+🚨 ATENÇÃO 🚨
+Se alguém que não for administrador do grupo entrar em contato no privado, ofertando algum produto ou condição especial, por favor denuncie!</pre>
+    </div>
+    <div class="grupo">
+      <h4>Clube do Bebê</h4>
+      <img src="logos/grupo/foto-grupo-clube-do-bebe.png" alt="Foto do grupo Clube do Bebê" loading="lazy">
+      <div class="acoes"><a href="logos/grupo/foto-grupo-clube-do-bebe.png" download>Baixar foto do grupo</a><button type="button" data-copiar>Copiar descritivo</button><a href="logos/grupo/descritivo-clube-do-bebe.txt" download>Baixar .txt</a></div>
+      <pre>CLUBE DO BEBÊ 💛
+
+Bem-vinda ao Clube do Bebê! Aqui você recebe conteúdos exclusivos da Day sobre sono e amamentação, e vê antes de todo mundo a nossa oportunidade de Black Friday.
+
+📘 Baixe agora seu ebook gratuito: &quot;O que ninguém te contou sobre o sono do bebê no berço&quot;
+
+👉 https://ebooksono.manualdorecemnascido.com.br
+
+📘 Baixe agora seu ebook gratuito: &quot;Por que meu bebê parece não saciar no seio?&quot;
+
+👉 https://ebookama.manualdorecemnascido.com.br
+
+⚡ Na próxima terça-feira, a Day libera aqui no grupo duas aulas exclusivas:
+
+😴 &quot;Autonomia de sono do bebê&quot;
+🤱 &quot;Como saber se o bebê está mamando ou chupetando?&quot;
+
+*IMPORTANTE* não é permitido:
+
+⛔ Postar fotos ou imagens de qualquer tipo
+⛔ Divulgar suas mídias sociais
+⛔ Mandar vídeos ou links de outros grupos
+⛔ Ofensas ou pornografia ocasionará na exclusão
+
+🚨 ATENÇÃO 🚨
+Se alguém que não for administrador do grupo entrar em contato no privado, ofertando algum produto ou condição especial, por favor denuncie!</pre>
+    </div>
+  </div>
+</section>
+<script>
+document.querySelectorAll('[data-copiar]').forEach(b=>b.addEventListener('click',async()=>{
+  const t=b.closest('.grupo').querySelector('pre').textContent;
+  try{await navigator.clipboard.writeText(t);b.textContent='Copiado!';}catch(e){b.textContent='Selecione e copie';}
+  setTimeout(()=>b.textContent='Copiar descritivo',1800);
+}));
+</script>
 
 <section>
   <div class="sec-head">
