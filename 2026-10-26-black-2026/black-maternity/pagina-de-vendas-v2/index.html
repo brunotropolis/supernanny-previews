@@ -249,7 +249,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .passo{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center;background:linear-gradient(180deg,#24122D,#190D20);border:1px solid var(--line);border-radius:24px;padding:18px}
 .passo:nth-child(even){grid-template-columns:1fr 300px}.passo:nth-child(even) .p-img{order:2}
 .p-img{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
-.p-img img{width:100%;height:100%;object-fit:cover}
+.p-img img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
 .p-num{position:absolute;left:12px;top:12px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--mag);color:#fff;font-family:var(--fd);font-weight:900;box-shadow:0 6px 16px rgba(0,0,0,.4)}
 .p-txt{display:grid;gap:10px;align-content:start}
 .p-txt .eyebrow{font-size:.7rem}
@@ -258,7 +258,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;line-height:1.2;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#F6EEF7}
 .chip i{font-style:normal;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mag2)}
-@media(max-width:760px){.passo,.passo:nth-child(even){grid-template-columns:1fr;padding:14px}.passo:nth-child(even) .p-img{order:0}.p-img{aspect-ratio:16/11}}
+@media(max-width:760px){.passo,.passo:nth-child(even){grid-template-columns:1fr;padding:14px}.passo:nth-child(even) .p-img{order:0}.p-img{aspect-ratio:1/1}}
 .atencao{max-width:720px;margin:0 auto;border:2px solid var(--mag2);border-radius:22px;padding:22px 20px;background:rgba(226,31,130,.1);display:grid;gap:10px;text-align:center}
 .atencao b.t{font-family:var(--fd);font-weight:900;font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mag2)}
 .atencao p{color:var(--txt)}
@@ -322,7 +322,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     </div>
     <div class="passos">
       <article class="passo">
-        <div class="p-img"><img src="../../assets/bm-jornada-1.webp" alt="" loading="lazy" width="800" height="1000"><span class="p-num">1</span></div>
+        <div class="p-img"><img src="../../assets/bm-jornada-1.webp" alt="Mãe grávida arrumando as roupinhas do enxoval" style="object-position:50% 35%" loading="lazy" width="800" height="1000"><span class="p-num">1</span></div>
         <div class="p-txt">
           <span class="eyebrow">Na gestação</span>
           <h3>Preparada para a chegada do bebê</h3>
@@ -331,7 +331,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         </div>
       </article>
       <article class="passo">
-        <div class="p-img"><img src="../../assets/bm-jornada-2.webp" alt="" loading="lazy" width="800" height="1000"><span class="p-num">2</span></div>
+        <div class="p-img"><img src="../../assets/bm-jornada-2.webp" alt="Mãe com o recém-nascido no colo" style="object-position:50% 45%" loading="lazy" width="800" height="1000"><span class="p-num">2</span></div>
         <div class="p-txt">
           <span class="eyebrow">Nos primeiros dias</span>
           <h3>Segura nos primeiros cuidados</h3>
@@ -340,7 +340,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         </div>
       </article>
       <article class="passo">
-        <div class="p-img"><img src="../../assets/bm-jornada-3.webp" alt="" loading="lazy" width="800" height="1000"><span class="p-num">3</span></div>
+        <div class="p-img"><img src="../../assets/bm-jornada-3.webp" alt="Mãe amamentando o bebê" style="object-position:50% 60%" loading="lazy" width="800" height="1000"><span class="p-num">3</span></div>
         <div class="p-txt">
           <span class="eyebrow">Na amamentação</span>
           <h3>Amamentando com conforto</h3>
@@ -349,7 +349,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         </div>
       </article>
       <article class="passo">
-        <div class="p-img"><img src="../../assets/bm-jornada-4.webp" alt="" loading="lazy" width="800" height="1000"><span class="p-num">4</span></div>
+        <div class="p-img"><img src="../../assets/bm-jornada-4.webp" alt="Mãe ao lado do berço com o bebê dormindo" style="object-position:50% 88%" loading="lazy" width="800" height="1000"><span class="p-num">4</span></div>
         <div class="p-txt">
           <span class="eyebrow">No sono</span>
           <h3>Com o bebê dormindo bem</h3>
@@ -358,7 +358,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         </div>
       </article>
       <article class="passo">
-        <div class="p-img"><img src="../../assets/bm-jornada-5.webp" alt="" loading="lazy" width="800" height="1000"><span class="p-num">5</span></div>
+        <div class="p-img"><img src="../../assets/bm-jornada-5.webp" alt="Mãe brincando com o bebê no tapete" style="object-position:50% 65%" loading="lazy" width="800" height="1000"><span class="p-num">5</span></div>
         <div class="p-txt">
           <span class="eyebrow">No primeiro ano</span>
           <h3>Tranquila pra viver cada fase</h3>
