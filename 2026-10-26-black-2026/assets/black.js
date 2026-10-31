@@ -5,13 +5,18 @@ window.CONFIG = {
   primeiraBlack: '2026-11-10',
   // Última terça de Black ('AAAA-MM-DD'). null = continua toda terça até alguém preencher.
   ultimaBlack: null,
-  // Link pra onde a página de "entrando no grupo" leva. Vazio = mostra aviso de prévia.
-  // Quando a ferramenta de grupos estiver pronta, trocar aqui (um link por frente).
+  // Link RESERVA da página de "entrando no grupo". O normal é o distribuidor do meteórico v2
+  // (/api/entrar) escolher o grupo pelo WhatsApp (veteranas x novas, mesmo grupo de antes) e
+  // esse link substituir o daqui. Reserva = grupo captando de 31/10 (Black #1 e Clube novas #1).
   linkGrupo: {
-    'black-maternity': '',
-    'clube-do-bebe': ''
+    'black-maternity': 'https://chat.whatsapp.com/IvR5e4SChoTIHI5uWSyzS8',
+    'clube-do-bebe': 'https://chat.whatsapp.com/FjxNqnmAiJ292VYv0BdSkI'
   }
 };
+// Link escolhido pelo distribuidor no envio do formulário (guardado na aba, nunca na URL)
+['black-maternity', 'clube-do-bebe'].forEach(f => {
+  try { const l = sessionStorage.getItem('linkGrupo:' + f); if (l) CONFIG.linkGrupo[f] = l; } catch (_) {}
+});
 
 (function () {
   const DIA = 864e5, BRT = 3 * 36e5;
@@ -69,9 +74,15 @@ window.CONFIG = {
     });
   }
 
-  // Ponto de integração com a ferramenta de grupos (a fazer). Hoje não envia nada.
+  // Manda o lead pro distribuidor (Worker do domínio -> n8n) e guarda o link do grupo escolhido.
+  // Falhou ou demorou mais de 6s: a tela de entrada usa o link reserva do CONFIG.
   async function enviarLead(lead) {
-    return lead;
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 6000);
+    try {
+      const r = await fetch('/api/entrar', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(lead), signal: ctl.signal });
+      const d = await r.json();
+      if (d && d.ok && /^https:\/\/chat\.whatsapp\.com\//.test(d.link)) sessionStorage.setItem('linkGrupo:' + lead.frente, d.link);
+    } finally { clearTimeout(t); }
   }
 
   function formularios() {
