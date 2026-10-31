@@ -75,9 +75,9 @@ window.CONFIG = {
   }
 
   // Manda o lead pro distribuidor (Worker do domínio -> n8n) e guarda o link do grupo escolhido.
-  // Falhou ou demorou mais de 6s: a tela de entrada usa o link reserva do CONFIG.
+  // Falhou ou demorou mais de 9s: a tela de entrada usa o link reserva do CONFIG.
   async function enviarLead(lead) {
-    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 6000);
+    const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 9000);
     try {
       const r = await fetch('/api/entrar', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(lead), signal: ctl.signal });
       const d = await r.json();
