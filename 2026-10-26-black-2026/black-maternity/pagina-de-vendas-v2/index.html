@@ -238,15 +238,23 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 @media (prefers-reduced-motion:reduce){.portrait .rings,.portrait .cf,.form button,.cta,.placa-aula,.logo-placa .bri,.logo-placa .logo-bm{animation:none}}
 
 /* v2: página de vendas */
-.selos{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;max-width:480px;margin-top:6px}
-.selo{background:rgba(226,31,130,.12);border:1px solid rgba(255,79,166,.45);border-radius:14px;padding:12px 10px;display:grid;gap:2px;text-align:center}
-.selo b{font-family:var(--fd);font-weight:900;font-size:1.5rem;line-height:1;color:#fff}
-.selo span{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FFD9E6;line-height:1.25}
-.hero .cta-c{margin-top:16px;text-align:left}
-@media(max-width:860px){.selos{margin-inline:auto}.hero .cta-c{text-align:center}.hero h1{font-size:1.32rem}}
+.hero .desc{color:var(--mut);font-size:1.05rem;line-height:1.55;max-width:480px}
+.hero .desc b{color:var(--txt)}
+.hero .cta-c{margin-top:14px;text-align:left}
+@media(max-width:860px){.hero .cta-c{text-align:center}.hero h1{font-size:1.32rem}.hero .desc{font-size:.96rem}}
+#jornada{scroll-margin-top:10px}
 .jornada{background:linear-gradient(180deg,var(--bg) 0%,#1F0A2C 100%)}
-.passos{display:grid;gap:26px;max-width:960px;margin:0 auto}
-.passo{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center;background:linear-gradient(180deg,#24122D,#190D20);border:1px solid var(--line);border-radius:24px;padding:18px}
+.passos{display:grid;gap:34px;max-width:960px;margin:0 auto;position:relative}
+/* linha neon suave ligando as fases */
+.passos::before{content:"";position:absolute;left:50%;top:-18px;bottom:-18px;width:2px;transform:translateX(-50%);background:linear-gradient(180deg,transparent,#FF4FA6 6%,#B57BFF 50%,#FF4FA6 94%,transparent);box-shadow:0 0 10px #FF4FA6,0 0 22px rgba(181,123,255,.6);opacity:.75;animation:fio 3.2s ease-in-out infinite}
+@keyframes fio{50%{opacity:.4}}
+.passo{position:relative;z-index:1}
+.passo:nth-child(1){background:linear-gradient(160deg,#3A1647,#1E0C26)}
+.passo:nth-child(2){background:linear-gradient(160deg,#4A1235,#260A1C)}
+.passo:nth-child(3){background:linear-gradient(160deg,#2A1A4A,#160E2A)}
+.passo:nth-child(4){background:linear-gradient(160deg,#441A3F,#220D20)}
+.passo:nth-child(5){background:linear-gradient(160deg,#4D1A33,#28101C)}
+.passo{display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center;border:1px solid rgba(255,79,166,.28);border-radius:24px;padding:18px;box-shadow:0 18px 40px -24px rgba(0,0,0,.8)}
 .passo:nth-child(even){grid-template-columns:1fr 300px}.passo:nth-child(even) .p-img{order:2}
 .p-img{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5}
 .p-img img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
@@ -255,13 +263,17 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .p-txt .eyebrow{font-size:.7rem}
 .p-txt h3{font-size:clamp(1.2rem,3vw,1.55rem);font-weight:900;line-height:1.2}
 .p-txt p{color:var(--mut)}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
-.chip{display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:700;line-height:1.2;padding:7px 11px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:#F6EEF7}
-.chip i{font-style:normal;font-size:.62rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--mag2)}
-@media(max-width:760px){.passo,.passo:nth-child(even){grid-template-columns:1fr;padding:14px}.passo:nth-child(even) .p-img{order:0}.p-img{aspect-ratio:1/1}}
-.atencao{max-width:720px;margin:0 auto;border:2px solid var(--mag2);border-radius:22px;padding:22px 20px;background:rgba(226,31,130,.1);display:grid;gap:10px;text-align:center}
-.atencao b.t{font-family:var(--fd);font-weight:900;font-size:1.1rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mag2)}
+.inclui{list-style:none;padding:0;margin-top:4px;display:grid;grid-template-columns:1fr 1fr;gap:7px 16px}
+.inclui li{display:flex;gap:8px;align-items:flex-start;font-size:.9rem;font-weight:700;line-height:1.3;color:#F6EEF7}
+.inclui li::before{content:"";flex:0 0 7px;height:7px;margin-top:6px;border-radius:50%;background:var(--mag2);box-shadow:0 0 8px var(--mag2)}
+.p-txt .incl-t{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-top:2px}
+@media(max-width:760px){.inclui{grid-template-columns:1fr}.passo,.passo:nth-child(even){grid-template-columns:1fr;padding:14px}.passo:nth-child(even) .p-img{order:0}.p-img{aspect-ratio:1/1}}
+.atencao{max-width:720px;margin:0 auto;border:2px solid var(--mag2);border-radius:24px;padding:26px 22px;background:radial-gradient(80% 120% at 50% 0%,rgba(255,79,166,.28),rgba(226,31,130,.08));display:grid;gap:10px;text-align:center;animation:pulso 2.4s ease-in-out infinite}
+@keyframes pulso{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,79,166,.45),0 0 26px rgba(255,79,166,.35)}50%{transform:scale(1.02);box-shadow:0 0 0 10px rgba(255,79,166,0),0 0 40px rgba(255,79,166,.6)}}
+.atencao b.t{font-family:var(--fd);font-weight:900;font-size:1rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mag2)}
+.atencao .off{font-family:var(--fd);font-weight:900;font-size:clamp(1.7rem,6vw,2.5rem);line-height:1.05;text-transform:uppercase;background:linear-gradient(180deg,#fff 30%,#FFB8D9);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 14px rgba(255,79,166,.55))}
 .atencao p{color:var(--txt)}
+@media (prefers-reduced-motion:reduce){.atencao,.passos::before{animation:none}}
 .oferta .caixa{max-width:560px;padding:28px 22px;gap:14px;box-shadow:0 0 0 2px rgba(255,79,166,.55),0 30px 70px -30px rgba(226,31,130,.7)}
 .recebe{list-style:none;padding:0;display:grid;gap:9px}
 .recebe li{display:flex;gap:10px;align-items:center;font-weight:700}
@@ -301,20 +313,14 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
     
     </div>
     <div class="hero-txt">
-      <span class="tag-aula">Black Maternity 2026</span>
       <h1>Você nunca mais vai precisar comprar nenhum curso sobre <span class="mag">maternidade, amamentação ou sono do bebê</span></h1>
-      <div class="selos">
-        <div class="selo"><b>12</b><span>cursos completos</span></div>
-        <div class="selo"><b>8</b><span>ebooks exclusivos</span></div>
-        <div class="selo"><b>1 ano</b><span>de acompanhamento</span></div>
-        <div class="selo"><b>2 anos</b><span>de acesso</span></div>
-      </div>
-      <div class="cta-c"><a class="cta" href="#oferta"><span>Quero aproveitar</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
+      <p class="desc">São <b>12 cursos completos, 8 ebooks e 1 ano de acompanhamento</b> no WhatsApp, com 2 anos de acesso. Tudo o que você precisa da gestação ao primeiro ano do bebê, num lugar só.</p>
+      <div class="cta-c"><a class="cta" href="#jornada"><span>Quero aproveitar</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
     </div>
   </div>
 </header>
 
-<section class="jornada">
+<section class="jornada" id="jornada">
   <div class="wrap">
     <div class="titulo">
       <span class="eyebrow">Do positivo ao primeiro ano</span>
@@ -327,7 +333,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
           <span class="eyebrow">Na gestação</span>
           <h3>Preparada para a chegada do bebê</h3>
           <p>Você monta seu plano de parto, entende cada etapa do grande dia e deixa o enxoval pronto, sem comprar o que não precisa.</p>
-          <div class="chips"><span class="chip">Plano de Parto <i>curso</i></span><span class="chip">O Dia do Parto <i>curso</i></span><span class="chip">Enxoval Descomplicado <i>ebook</i></span><span class="chip">Como Vestir o Bebê <i>ebook</i></span></div>
+          <span class="incl-t">Está incluso</span>
+          <ul class="inclui"><li>Plano de Parto</li><li>O Dia do Parto</li><li>Enxoval Descomplicado</li><li>Como Vestir o Bebê</li></ul>
         </div>
       </article>
       <article class="passo">
@@ -336,7 +343,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
           <span class="eyebrow">Nos primeiros dias</span>
           <h3>Segura nos primeiros cuidados</h3>
           <p>Banho, cólica, choro, umbigo, e o que fazer numa emergência. Você cuida do bebê com calma, sabendo o que é normal e o que não é.</p>
-          <div class="chips"><span class="chip">Bebê Calminho <i>curso</i></span><span class="chip">Primeiros Socorros <i>curso</i></span><span class="chip">Saltos de Desenvolvimento <i>ebook</i></span></div>
+          <span class="incl-t">Está incluso</span>
+          <ul class="inclui"><li>Bebê Calminho</li><li>Primeiros Socorros</li><li>Saltos de Desenvolvimento</li></ul>
         </div>
       </article>
       <article class="passo">
@@ -345,7 +353,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
           <span class="eyebrow">Na amamentação</span>
           <h3>Amamentando com conforto</h3>
           <p>Pega certa desde o começo, produção de leite, como tirar e guardar o leite e o que fazer quando precisar complementar.</p>
-          <div class="chips"><span class="chip">Técnica Dos Anjos <i>curso</i></span><span class="chip">Guia da Pega <i>curso</i></span><span class="chip">Técnica Pesque Baby <i>curso</i></span><span class="chip">Como Estocar o Leite <i>curso</i></span><span class="chip">Manual do Complemento <i>curso</i></span><span class="chip">Alta Produção de Leite <i>ebook</i></span></div>
+          <span class="incl-t">Está incluso</span>
+          <ul class="inclui"><li>Técnica Dos Anjos</li><li>Guia da Pega</li><li>Técnica Pesque Baby</li><li>Como Estocar o Leite</li><li>Manual do Complemento</li><li>Alta Produção de Leite</li></ul>
         </div>
       </article>
       <article class="passo">
@@ -354,7 +363,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
           <span class="eyebrow">No sono</span>
           <h3>Com o bebê dormindo bem</h3>
           <p>Rotina que respeita o ritmo do bebê, sonecas que funcionam e noites mais tranquilas, sem deixar chorar.</p>
-          <div class="chips"><span class="chip">Método Dream Baby <i>curso</i></span><span class="chip">Dream Baby Pocket <i>curso</i></span><span class="chip">Mini Curso de Rotina <i>curso</i></span><span class="chip">Entre Sonecas <i>ebook</i></span><span class="chip">Rotina do Bebê <i>ebook</i></span></div>
+          <span class="incl-t">Está incluso</span>
+          <ul class="inclui"><li>Método Dream Baby</li><li>Dream Baby Pocket</li><li>Mini Curso de Rotina</li><li>Entre Sonecas</li><li>Rotina do Bebê</li></ul>
         </div>
       </article>
       <article class="passo">
@@ -363,7 +373,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
           <span class="eyebrow">No primeiro ano</span>
           <h3>Tranquila pra viver cada fase</h3>
           <p>Introdução alimentar, brincadeiras pra cada idade e uma consultora da nossa equipe com você no WhatsApp por 1 ano inteiro.</p>
-          <div class="chips"><span class="chip">Introdução Alimentar <i>ebook</i></span><span class="chip">Atividades pra Gastar Energia <i>ebook</i></span><span class="chip">1 ano de acompanhamento <i>bônus</i></span></div>
+          <span class="incl-t">Está incluso</span>
+          <ul class="inclui"><li>Introdução Alimentar</li><li>Atividades pra Gastar Energia</li><li>1 ano de acompanhamento</li></ul>
         </div>
       </article>
     </div>
@@ -400,9 +411,6 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
       <div class="linha"><span>Saltos de Desenvolvimento</span><s>R$ 59</s></div>
       <div class="linha"><span>Atividades pra Gastar Energia</span><s>R$ 59</s></div>
     </div>
-      <p class="grupo-t">Bônus</p>
-      <div class="linha"><span>Acompanhamento por 1 ano no WhatsApp</span><s>R$ 582</s></div>
-      <div class="linha"><span>Grupo de mães + grupo de cupons do enxoval</span><b>Bônus</b></div>
       <div class="total"><span class="na">Total fora da Black Maternity</span><span class="de">R$ 2.770</span></div>
     </div>
   </div>
@@ -418,7 +426,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
       </div>
       <div class="extra">
         <div class="extra-img"><img src="../../assets/bm-enxoval-cupons.webp" alt="Roupinhas de bebê penduradas" width="900" height="675" loading="lazy"><span class="selo-img">% Cupons em primeira mão</span></div>
-        <div class="extra-txt"><h3>Grupo de mães e grupo de cupons</h3><p>Um grupo pra trocar experiências com outras mães e um grupo com os melhores cupons de fraldas, roupinhas e enxoval, chegando pra você antes de todo mundo.</p></div>
+        <div class="extra-txt"><h3>Grupo do enxoval com cupons em primeira mão</h3><p>Os melhores cupons de fraldas, roupinhas, higiene e enxoval, selecionados pela nossa equipe e chegando pra você antes de todo mundo.</p></div>
       </div>
     </div>
   </div>
@@ -428,7 +436,8 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
   <div class="wrap">
     <div class="atencao">
       <b class="t">Atenção</b>
-      <p>Essa é a oferta mais completa que a Day já fez, com mais de 70% de desconto. Quando a Black Maternity acabar, o valor volta ao normal e o acompanhamento de 1 ano deixa de fazer parte do pacote.</p>
+      <span class="off">Mais de 70% de desconto</span>
+      <p>Essa é a oferta mais completa que a Day já fez. Quando a Black Maternity acabar, o valor volta ao normal e o acompanhamento de 1 ano deixa de fazer parte do pacote.</p>
     </div>
     <div class="titulo" style="margin-top:44px"><span class="eyebrow">Tudo o que você vai receber</span><h2>Black Maternity</h2></div>
     <div class="caixa">
@@ -436,7 +445,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>12 cursos completos, com acesso imediato</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>8 ebooks exclusivos</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>1 ano de acompanhamento no WhatsApp</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Grupo de mães e grupo de cupons</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Grupo do enxoval com cupons</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>2 anos de acesso a tudo</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>7 dias de garantia</li>
       </ul>
