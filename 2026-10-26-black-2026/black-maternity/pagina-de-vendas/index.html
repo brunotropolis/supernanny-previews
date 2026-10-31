@@ -302,6 +302,9 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .faq details[open] summary::after{content:"−"}
 .faq details p{color:var(--mut);margin-top:10px;font-size:.94rem}
 .final .cta-c{margin-top:0}
+/* celular bem estreito (320px): nada passa da largura */
+.recebe,.oferta .caixa{grid-template-columns:minmax(0,1fr)}
+@media(max-width:350px){.oferta .caixa{padding:22px 14px}.oferta .parc{font-size:2.7rem}.cta{max-width:100%}.cta span{white-space:normal}.day *{min-width:0}.day [class*=grid]{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>

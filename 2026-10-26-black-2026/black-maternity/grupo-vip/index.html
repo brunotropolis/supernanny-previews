@@ -302,10 +302,28 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
 .faq details[open] summary::after{content:"−"}
 .faq details p{color:var(--mut);margin-top:10px;font-size:.94rem}
 .final .cta-c{margin-top:0}
+/* celular bem estreito (320px): nada passa da largura */
+.recebe,.oferta .caixa{grid-template-columns:minmax(0,1fr)}
+@media(max-width:350px){.oferta .caixa{padding:22px 14px}.oferta .parc{font-size:2.7rem}.cta{max-width:100%}.cta span{white-space:normal}.day *{min-width:0}.day [class*=grid]{grid-template-columns:minmax(0,1fr)}}
+</style><style>
+.barra.sutil{grid-auto-flow:column;justify-content:center;align-items:center;gap:10px;padding:7px 12px;padding-top:calc(7px + env(safe-area-inset-top));background:rgba(12,7,16,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,79,166,.28)}
+.barra.sutil .rotulo{font-size:.66rem;letter-spacing:.1em;color:#E9D8EE}
+.barra.sutil .cd{gap:6px}
+.barra.sutil .cd>span{display:flex;align-items:baseline;gap:1px;background:none;border:0;min-width:0;padding:0}
+.barra.sutil .cd b{font-size:.95rem;color:#FF7DBA}
+.barra.sutil .cd i{font-size:.62rem;margin:0;letter-spacing:0;text-transform:none;opacity:.75}
+@media(min-width:700px){.barra.sutil .rotulo{font-size:.72rem}.barra.sutil .cd b{font-size:1.05rem}.barra.sutil .cd>span{min-width:0}}
+.barra.sutil .rotulo{white-space:nowrap}
+@media(max-width:480px){.barra.sutil{gap:8px}.barra.sutil .rotulo{font-size:.6rem;letter-spacing:.05em}.barra.sutil .cd b{font-size:.9rem}}
+@media(max-width:350px){.barra.sutil .rotulo .antes{font-size:0}.barra.sutil .rotulo .antes::after{content:"Começa em";font-size:.6rem}}
 </style>
 <script src="../../assets/black.js" defer></script>
 </head>
 <body>
+<div class="barra sutil" data-contador>
+  <span class="rotulo"><span class="antes">A Black Maternity começa em</span><span class="hoje">A Black Maternity é hoje! Faltam</span></span>
+  <span class="cd"><span><b data-d>00</b><i>d</i></span><span><b data-h>00</b><i>h</i></span><span><b data-m>00</b><i>m</i></span><span><b data-s>00</b><i>s</i></span></span>
+</div>
 
 <header class="hero">
   <div class="wrap hero-grid">
@@ -470,7 +488,7 @@ footer{padding:26px 18px calc(26px + env(safe-area-inset-bottom));text-align:cen
         <span class="parc"><small>na Black Maternity</small><b>R$ ????</b></span>
         <span class="vista">O valor é revelado só para quem está no grupo VIP</span>
       </div>
-      <div class="cta-c"><a class="cta" href="#cadastro" data-foco="whats1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Ver o valor no grupo VIP</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
+      <div class="cta-c"><a class="cta" href="#cadastro" data-foco="whats1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.9 9.9 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.89 9.88m8.41-18.29A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.48-8.41"/></svg><span>Participe da Black Maternity</span><svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></a></div>
     </div>
   </div>
 </section>
