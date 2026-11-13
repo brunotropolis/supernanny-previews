@@ -165,10 +165,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") document.get
 function textoAjustes() {
   const linhas = DIAS.map(d => { const s = estado[d.id]; if (!s) return null;
     return s.status === "aprovado" ? `Dia ${d.n} (${d.data}): aprovado` : `Dia ${d.n} (${d.data}): ${s.comentario}`; }).filter(Boolean);
-  return linhas.length ? "Revisão dos stories (dias " + DIAS[0].n + " a " + DIAS[DIAS.length - 1].n + ")
-
-" + linhas.join("
-") : "";
+  return linhas.length ? "Revisão dos stories (dias " + DIAS[0].n + " a " + DIAS[DIAS.length - 1].n + ")" + String.fromCharCode(10, 10) + linhas.join(String.fromCharCode(10)) : "";
 }
 
 if (MODO === "github") {
