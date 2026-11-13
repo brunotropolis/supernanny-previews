@@ -1,0 +1,203 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Stories da Day</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..700,100&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+/* layout: uma coluna de dias, cada dia = faixa de stories 9:16 rolando de lado + decisão embaixo */
+:root{
+  --bg:#f6f1ee; --card:#fffdfb; --fg:#3b2c25; --muted:#86736b; --line:#eadfd8;
+  --accent:#b8456f; --accent-soft:#f6dde6; --ok:#2f7d55; --ok-soft:#dcefe3; --warn:#b5651d; --warn-soft:#f8e6d2;
+  --display:'Fraunces',Georgia,serif; --text:'Hanken Grotesk',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1c1614; --card:#26201d; --fg:#f1e7e1; --muted:#b09d94; --line:#3a302b;
+  --accent:#e27aa0; --accent-soft:#4a2433; --ok:#6cc596; --ok-soft:#1f3a2b; --warn:#eba467; --warn-soft:#45301c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1c1614; --card:#26201d; --fg:#f1e7e1; --muted:#b09d94; --line:#3a302b;
+  --accent:#e27aa0; --accent-soft:#4a2433; --ok:#6cc596; --ok-soft:#1f3a2b; --warn:#eba467; --warn-soft:#45301c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:15px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 60px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+h1{font-family:var(--display);font-variation-settings:'SOFT' 100;font-weight:600;font-size:30px;line-height:1.1;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0}
+.resumo{display:flex;gap:8px;flex-wrap:wrap}
+.filtro{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:7px 14px;font:600 14px var(--text);cursor:pointer;font-variant-numeric:tabular-nums}
+.filtro[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.aviso{background:var(--warn-soft);color:var(--fg);border-radius:12px;padding:10px 14px;font-size:14px}
+.dia{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.dia-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dia h2{font-family:var(--display);font-variation-settings:'SOFT' 100;font-weight:600;font-size:22px;margin:0}
+.dia .quando{color:var(--muted);font-size:14px}
+.chip{font:700 12px var(--text);letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:4px 10px;background:var(--line);color:var(--muted)}
+.chip.aprovado{background:var(--ok-soft);color:var(--ok)}
+.chip.ajuste{background:var(--warn-soft);color:var(--warn)}
+.faixa{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+.st{flex:0 0 132px;scroll-snap-align:start;display:flex;flex-direction:column;gap:5px;min-width:0}
+.st button{all:unset;cursor:zoom-in;position:relative;display:block;aspect-ratio:9/16;border-radius:10px;overflow:hidden;background:var(--line)}
+.st button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.st img{width:100%;height:100%;object-fit:cover;display:block}
+.st .tag{position:absolute;left:6px;top:6px;background:rgba(0,0,0,.62);color:#fff;font:700 11px var(--text);border-radius:6px;padding:2px 6px}
+.st .vid{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.62);color:#fff;font:600 11px var(--text);border-radius:6px;padding:2px 6px}
+.st .leg{font-size:12px;color:var(--muted);line-height:1.3}
+.st.alt button{outline:2px dashed var(--muted);outline-offset:-2px}
+details{font-size:14px;color:var(--muted)}
+details summary{cursor:pointer;font-weight:600;color:var(--fg)}
+details ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px;overflow-wrap:anywhere}
+.acoes{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{border:0;border-radius:10px;padding:10px 16px;font:700 14px var(--text);cursor:pointer}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn.ok{background:var(--ok);color:var(--card)}
+.btn.aj{background:var(--warn-soft);color:var(--warn)}
+.btn.sec{background:transparent;color:var(--muted);text-decoration:underline;padding:10px 6px}
+.btn[disabled]{opacity:.5;cursor:default}
+.drive{margin-left:auto;color:var(--accent);font-weight:600;font-size:14px}
+textarea{width:100%;min-height:84px;border:1px solid var(--line);border-radius:10px;padding:10px;font:15px var(--text);background:var(--bg);color:var(--fg);resize:vertical}
+.coment{background:var(--warn-soft);border-radius:10px;padding:8px 12px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.zoom{position:fixed;inset:0;background:rgba(10,6,5,.88);display:flex;align-items:center;justify-content:center;z-index:20;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px)}
+.zoom img{max-height:100%;max-width:100%;border-radius:12px}
+.zoom p{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 10px);left:16px;right:16px;text-align:center;color:#fff;font-size:13px;margin:0}
+.barra{position:sticky;bottom:0;background:var(--card);border-top:1px solid var(--line);margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:12px max(16px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
+.barra-in{max-width:760px;margin:0 auto;width:100%;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+@media (prefers-reduced-motion:no-preference){.dia{transition:border-color .2s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Stories da Day</h1>
+    <p class="sub">Dias novos do acervo. Toque num story pra ver maior. Em cada dia, aprove ou escreva o ajuste: eu leio daqui e refaço.</p>
+  </header>
+  <div class="resumo" id="filtros" role="group" aria-label="Filtrar dias"></div>
+  <div class="aviso" id="aviso" hidden></div>
+  <main id="dias" class="wrap" style="gap:16px"></main>
+</div>
+<div class="barra" id="copiar" hidden><div class="barra-in"><button class="btn ok" id="btn-copiar">Copiar meus ajustes</button><span id="copiar-msg" class="sub" style="margin:0"></span></div><textarea id="copiar-texto" hidden aria-label="Texto dos ajustes"></textarea></div>
+<div class="zoom" id="zoom" hidden><img id="zoom-img" alt=""><p id="zoom-leg"></p></div>
+
+<script>
+const DIAS = [{"n": 11, "id": "dia-11", "data": "11/11", "dia": "qua", "tema": "Produto", "stories": [{"n": "01", "img": "img/d11-01.jpg", "dur": 44, "alt": false}, {"n": "02", "img": "img/d11-02.jpg", "dur": 12, "alt": false}, {"n": "03-alternativa (meses seguintes)", "img": "img/d11-03-alternativa.jpg", "dur": null, "alt": true}, {"n": "03", "img": "img/d11-03.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link do ruído branco", "02": "Botão QUERO com o link do saco de dormir", "03": "Versão do dia 11/11. Nos outros meses usar o 03-alternativa."}, "links": ["Ruído branco: Shopee https://s.shopee.com.br/707DNYAMja | Amazon https://link.amazon/B06i9YZYi | ML https://meli.la/2GfamEN", "Saco de dormir: Shopee https://s.shopee.com.br/9fKArZJKKA | Amazon https://link.amazon/B0cXGzcvm | ML https://meli.la/2UvFMMe", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 12, "id": "dia-12", "data": "12/11", "dia": "qui", "tema": "Amamentação", "stories": [{"n": "01", "img": "img/d12-01.jpg", "dur": 54, "alt": false}, {"n": "02", "img": "img/d12-02.jpg", "dur": 40, "alt": false}, {"n": "03", "img": "img/d12-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d12-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["Aula de amamentação (Clube do Bebê): https://clube.manualdorecemnascido.com.br/amamentacao/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 13, "id": "dia-13", "data": "13/11", "dia": "sex", "tema": "Sono", "stories": [{"n": "01", "img": "img/d13-01.jpg", "dur": 23, "alt": false}, {"n": "02", "img": "img/d13-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d13-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d13-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d13-05.jpg", "dur": null, "alt": false}], "notas": {"02": "Enquete por cima: SEU BEBÊ DORME MELHOR... (No colo / No berço)", "03": "Reação 😍"}, "links": ["Aula autonomia do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 14, "id": "dia-14", "data": "14/11", "dia": "sáb", "tema": "Produto", "stories": [{"n": "01", "img": "img/d14-01.jpg", "dur": 31, "alt": false}, {"n": "02", "img": "img/d14-02.jpg", "dur": 37, "alt": false}, {"n": "03-alternativa (meses seguintes)", "img": "img/d14-03-alternativa.jpg", "dur": null, "alt": true}, {"n": "03", "img": "img/d14-03.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link da babá eletrônica", "02": "Botão QUERO com o link das cartas de alto contraste", "03": "Versão de novembro (faltam 13 dias pra Black Friday). Nos outros meses usar o 03-alternativa."}, "links": ["Babá eletrônica: Shopee https://s.shopee.com.br/8fSbtTvwrE | Amazon https://link.amazon/B01IIeuLC | ML https://meli.la/1jX3KCS", "Cartas de alto contraste: Shopee https://s.shopee.com.br/7VGVFEn9n2 | Amazon https://link.amazon/B0erPqx9H | ML https://meli.la/1h62rbp", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 15, "id": "dia-15", "data": "15/11", "dia": "dom", "tema": "Gestante", "stories": [{"n": "01", "img": "img/d15-01.jpg", "dur": 28, "alt": false}, {"n": "02", "img": "img/d15-02.jpg", "dur": 40, "alt": false}, {"n": "03", "img": "img/d15-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d15-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["E-book Enxoval Descomplicado (isca Black Maternity): https://black.manualdorecemnascido.com.br/enxoval/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 16, "id": "dia-16", "data": "16/11", "dia": "seg", "tema": "Sono", "stories": [{"n": "01", "img": "img/d16-01.jpg", "dur": 41, "alt": false}, {"n": "02", "img": "img/d16-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d16-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d16-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d16-05.jpg", "dur": null, "alt": false}, {"n": "06", "img": "img/d16-06.jpg", "dur": null, "alt": false}], "notas": {"02": "Enquete por cima: COMO ESTÁ O SONO NOTURNO DO SEU BEBÊ? (Acorda várias vezes / Acorda 1 ou 2 vezes pra mamar / Já dorme a noite toda)", "04": "Reação 😮"}, "links": ["E-book do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/ebook-sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 17, "id": "dia-17", "data": "17/11", "dia": "ter", "tema": "Consulta", "stories": [{"n": "01", "img": "img/d17-01.jpg", "dur": 39, "alt": false}, {"n": "02", "img": "img/d17-02.jpg", "dur": 37, "alt": false}, {"n": "03", "img": "img/d17-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d17-04.jpg", "dur": null, "alt": false}], "notas": {"01": "Reação 🙋 logo abaixo da frase"}, "links": ["Página de consulta (A Day Só Pra Você): https://consulta.manualdorecemnascido.com.br/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 18, "id": "dia-18", "data": "18/11", "dia": "qua", "tema": "Produto", "stories": [{"n": "01", "img": "img/d18-01.jpg", "dur": 12, "alt": false}, {"n": "02", "img": "img/d18-02.jpg", "dur": 32, "alt": false}, {"n": "03-alternativa (meses seguintes)", "img": "img/d18-03-alternativa.jpg", "dur": null, "alt": true}, {"n": "03", "img": "img/d18-03.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link da lixa de unha", "02": "Botão QUERO com o link da lixeira", "03": "Versão de novembro (faltam 9 dias). Nos outros meses usar o 03-alternativa."}, "links": ["Lixa de unha elétrica: Shopee https://s.shopee.com.br/60I3RtJQ5q | Amazon https://link.amazon/B0gZv7xxY | ML https://meli.la/1JgzNMY", "Lixeira anti odor: Shopee https://s.shopee.com.br/qk3hrAHE8 | Amazon https://link.amazon/B0jc1BZvO | ML https://meli.la/2QjwSub", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 19, "id": "dia-19", "data": "19/11", "dia": "qui", "tema": "Amamentação", "stories": [{"n": "01", "img": "img/d19-01.jpg", "dur": 27, "alt": false}, {"n": "02", "img": "img/d19-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d19-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d19-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d19-05.jpg", "dur": null, "alt": false}], "notas": {"02": "Enquete por cima: VOCÊ JÁ COLOCOU SEU BEBÊ PARA ARROTAR NO MEIO DA MAMADA? (Sim / Não, mas vou tentar)", "03": "Reação 😮"}, "links": ["E-book de amamentação (Clube do Bebê): https://clube.manualdorecemnascido.com.br/ebook-amamentacao/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 20, "id": "dia-20", "data": "20/11", "dia": "sex", "tema": "Sono", "stories": [{"n": "01", "img": "img/d20-01.jpg", "dur": 44, "alt": false}, {"n": "02", "img": "img/d20-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d20-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d20-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d20-05.jpg", "dur": null, "alt": false}, {"n": "06", "img": "img/d20-06.jpg", "dur": null, "alt": false}], "notas": {"02": "Enquete por cima: COMO ESTÃO AS SONECAS DO SEU BEBÊ DURANTE O DIA? (Bagunçadas / Custa dormir e dorme pouco / Já temos rotina certinha / Ainda gestante)", "03": "Reação 😮"}, "links": ["Aula autonomia do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 21, "id": "dia-21", "data": "21/11", "dia": "sáb", "tema": "Produto", "stories": [{"n": "01", "img": "img/d21-01.jpg", "dur": 59, "alt": false}, {"n": "02", "img": "img/d21-02.jpg", "dur": 25, "alt": false}, {"n": "03-alternativa (meses seguintes)", "img": "img/d21-03-alternativa.jpg", "dur": null, "alt": true}, {"n": "03", "img": "img/d21-03.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link da almofada de sementes", "02": "Botão QUERO com o link do brinquedo de banho", "03": "Versão de novembro (faltam 6 dias). Nos outros meses usar o 03-alternativa."}, "links": ["Almofada de sementes: Shopee https://s.shopee.com.br/80Cv6Jb4uw | Amazon https://link.amazon/B0fMG7EhG | ML https://meli.la/2hV7CXC", "Brinquedo de banho de silicone: Shopee https://s.shopee.com.br/9zyId0gyPr | Amazon https://link.amazon/B0c1OzEWa | ML https://meli.la/28w45x6", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 22, "id": "dia-22", "data": "22/11", "dia": "dom", "tema": "Gestante", "stories": [{"n": "01", "img": "img/d22-01.jpg", "dur": 46, "alt": false}, {"n": "02", "img": "img/d22-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d22-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d22-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d22-05.jpg", "dur": null, "alt": false}, {"n": "06", "img": "img/d22-06.jpg", "dur": null, "alt": false}], "notas": {"03": "Controle deslizante 😍 por cima do que já está marcado", "04": "Reação 😮"}, "links": ["Aula gestante (isca Black Maternity): https://black.manualdorecemnascido.com.br/aula/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 23, "id": "dia-23", "data": "23/11", "dia": "seg", "tema": "Sono", "stories": [{"n": "01", "img": "img/d23-01.jpg", "dur": 43, "alt": false}, {"n": "02", "img": "img/d23-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d23-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d23-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d23-05.jpg", "dur": null, "alt": false}, {"n": "06", "img": "img/d23-06.jpg", "dur": null, "alt": false}], "notas": {"02": "Enquete por cima: VOCÊ JÁ PERCEBEU ALGUMA NOVA HABILIDADE DO SEU BEBÊ QUE COINCIDIU COM UMA ALTERAÇÃO NO SONO? (Sim / Não / Ainda gestante)", "04": "Enquete por cima: COMO ESTÁ O SONO DO SEU BEBÊ? (Ótimo / Bom, mas pode melhorar / Ruim, estou só sobrevivendo / Ainda gestante)"}, "links": ["E-book do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/ebook-sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 24, "id": "dia-24", "data": "24/11", "dia": "ter", "tema": "Consulta", "stories": [{"n": "01", "img": "img/d24-01.jpg", "dur": 42, "alt": false}, {"n": "02", "img": "img/d24-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d24-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d24-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["Página de consulta (A Day Só Pra Você): https://consulta.manualdorecemnascido.com.br/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 25, "id": "dia-25", "data": "25/11", "dia": "qua", "tema": "Produto", "stories": [{"n": "01", "img": "img/d25-01.jpg", "dur": 54, "alt": false}, {"n": "02-alternativa (meses seguintes)", "img": "img/d25-02-alternativa.jpg", "dur": null, "alt": true}, {"n": "02", "img": "img/d25-02.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link do adesivo repelente", "02": "Versão de novembro (faltam 2 dias). Nos outros meses usar o 02-alternativa."}, "links": ["Adesivo repelente: ML https://meli.la/3127g9E", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 26, "id": "dia-26", "data": "26/11", "dia": "qui", "tema": "Amamentação", "stories": [{"n": "01", "img": "img/d26-01.jpg", "dur": 53, "alt": false}, {"n": "02", "img": "img/d26-02.jpg", "dur": 69, "alt": false}, {"n": "03", "img": "img/d26-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d26-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["Aula de amamentação (Clube do Bebê): https://clube.manualdorecemnascido.com.br/amamentacao/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 27, "id": "dia-27", "data": "27/11", "dia": "sex", "tema": "Sono", "stories": [{"n": "01", "img": "img/d27-01.jpg", "dur": 36, "alt": false}, {"n": "02", "img": "img/d27-02.jpg", "dur": null, "alt": false}, {"n": "03", "img": "img/d27-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d27-04.jpg", "dur": null, "alt": false}, {"n": "05", "img": "img/d27-05.jpg", "dur": null, "alt": false}, {"n": "06", "img": "img/d27-06.jpg", "dur": null, "alt": false}], "notas": {"02": "Enquete por cima: SEU BEBÊ DORME SEMPRE COM A CABEÇA VIRADA PRO MESMO LADO? (Sim / Não / Nunca reparei / Gestante)", "03": "Reação 😮"}, "links": ["Aula autonomia do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 28, "id": "dia-28", "data": "28/11", "dia": "sáb", "tema": "Produto", "stories": [{"n": "01", "img": "img/d28-01.jpg", "dur": 42, "alt": false}, {"n": "02-alternativa (meses seguintes)", "img": "img/d28-02-alternativa.jpg", "dur": null, "alt": true}, {"n": "02", "img": "img/d28-02.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link da tela de proteção", "02": "Versão do fim de semana da Black Friday. Nos outros meses usar o 02-alternativa."}, "links": ["Tela de proteção do berço: a Day coloca o link (não está na planilha)", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 29, "id": "dia-29", "data": "29/11", "dia": "dom", "tema": "Gestante", "stories": [{"n": "01", "img": "img/d29-01.jpg", "dur": 35, "alt": false}, {"n": "02", "img": "img/d29-02.jpg", "dur": 36, "alt": false}, {"n": "03", "img": "img/d29-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d29-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["E-book Enxoval Descomplicado (isca Black Maternity): https://black.manualdorecemnascido.com.br/enxoval/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 30, "id": "dia-30", "data": "30/11", "dia": "seg", "tema": "Sono", "stories": [{"n": "01", "img": "img/d30-01.jpg", "dur": 49, "alt": false}, {"n": "02", "img": "img/d30-02.jpg", "dur": 35, "alt": false}, {"n": "03", "img": "img/d30-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d30-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["E-book do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/ebook-sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 31, "id": "dia-31", "data": "01/12", "dia": "ter", "tema": "Consulta", "stories": [{"n": "01", "img": "img/d31-01.jpg", "dur": 36, "alt": false}, {"n": "02", "img": "img/d31-02.jpg", "dur": 51, "alt": false}, {"n": "03", "img": "img/d31-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d31-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["Página de consulta (A Day Só Pra Você): https://consulta.manualdorecemnascido.com.br/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 32, "id": "dia-32", "data": "02/12", "dia": "qua", "tema": "Produto", "stories": [{"n": "01", "img": "img/d32-01.jpg", "dur": 36, "alt": false}, {"n": "02", "img": "img/d32-02.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link da bolsinha térmica"}, "links": ["Bolsinha térmica de gel: a Day coloca o link (não está na planilha)", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 33, "id": "dia-33", "data": "03/12", "dia": "qui", "tema": "Amamentação", "stories": [{"n": "01", "img": "img/d33-01.jpg", "dur": 50, "alt": false}, {"n": "02", "img": "img/d33-02.jpg", "dur": 38, "alt": false}, {"n": "03", "img": "img/d33-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d33-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["E-book de amamentação (Clube do Bebê): https://clube.manualdorecemnascido.com.br/ebook-amamentacao/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 34, "id": "dia-34", "data": "04/12", "dia": "sex", "tema": "Sono", "stories": [{"n": "01", "img": "img/d34-01.jpg", "dur": 52, "alt": false}, {"n": "02", "img": "img/d34-02.jpg", "dur": 24, "alt": false}, {"n": "03", "img": "img/d34-03.jpg", "dur": null, "alt": false}, {"n": "04", "img": "img/d34-04.jpg", "dur": null, "alt": false}], "notas": {}, "links": ["Aula autonomia do sono (Clube do Bebê): https://clube.manualdorecemnascido.com.br/sono/?origem=stories", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}, {"n": 35, "id": "dia-35", "data": "05/12", "dia": "sáb", "tema": "Produto", "stories": [{"n": "01", "img": "img/d35-01.jpg", "dur": 43, "alt": false}, {"n": "02", "img": "img/d35-02.jpg", "dur": null, "alt": false}], "notas": {"01": "Botão QUERO com o link do ninho (o vídeo já foi cortado antes do 'comenta')"}, "links": ["Ninho: Shopee https://s.shopee.com.br/7fSXXChDUE | Amazon https://link.amazon/B08uowNkR | ML https://meli.la/337miRB", "Grupo As Ofertas Maternas: https://asofertasmaternas.com.br/?utm_source=instagram&utm_medium=stories"], "drive": null}];
+const MODO = "github";   // "github": sem banco, guarda no aparelho e copia o texto pra colar no chat
+const estado = {};            // id do dia > {status, comentario}
+let filtro = "todos", db = null, podeEscrever = true;
+
+const el = (t, a = {}, ...f) => { const e = document.createElement(t); for (const [k, v] of Object.entries(a)) { if (k === "class") e.className = v; else if (k.startsWith("on")) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v); } for (const x of f) if (x != null) e.append(x); return e; };
+const rotulo = s => ({aprovado: "Aprovado", ajuste: "Ajuste pedido"}[s] || "Pendente");
+
+function filtros() {
+  const c = {todos: DIAS.length, pendente: 0, ajuste: 0, aprovado: 0};
+  for (const d of DIAS) c[(estado[d.id] || {}).status || "pendente"]++;
+  const nomes = [["todos", "Todos"], ["pendente", "Pendentes"], ["ajuste", "Com ajuste"], ["aprovado", "Aprovados"]];
+  const box = document.getElementById("filtros"); box.replaceChildren();
+  for (const [k, n] of nomes) box.append(el("button", {class: "filtro", "aria-pressed": String(filtro === k), onclick: () => { filtro = k; render(); }}, `${n} · ${c[k]}`));
+}
+
+function cartao(d) {
+  const st = estado[d.id] || {status: "pendente"};
+  const faixa = el("div", {class: "faixa"});
+  d.stories.forEach(s => {
+    const n = s.n.replace(/^0/, "");
+    const b = el("button", {"aria-label": `Ver story ${s.n} do dia ${d.n}`, onclick: () => abrir(s, d)},
+      el("img", {src: s.img, alt: "", loading: "lazy"}), el("span", {class: "tag"}, s.alt ? "extra" : n),
+      s.dur ? el("span", {class: "vid"}, `▶ ${s.dur}s`) : null);
+    faixa.append(el("div", {class: "st" + (s.alt ? " alt" : "")}, b, d.notas[s.n] || s.alt ? el("div", {class: "leg"}, s.alt ? s.n.replace(/^\d+-?/, "") : d.notas[s.n]) : null));
+  });
+  const det = el("details", {}, el("summary", {}, "Links e figurinhas do dia"),
+    el("ul", {}, ...d.links.map(l => el("li", {}, l)), ...Object.entries(d.notas).map(([k, v]) => el("li", {}, `Story ${k}: ${v}`))));
+  const acoes = el("div", {class: "acoes"});
+  const area = el("div", {class: "wrap", style: "gap:8px;max-width:none"});
+  if (st.status === "ajuste" && st.comentario) area.append(el("div", {class: "coment"}, "Seu pedido: " + st.comentario));
+  if (MODO === "github" || (podeEscrever && db)) {
+    if (st.status !== "aprovado") acoes.append(el("button", {class: "btn ok", onclick: e => salvar(d, "aprovado", "", e.target)}, "Aprovar"));
+    acoes.append(el("button", {class: "btn aj", onclick: () => { area.replaceChildren(caixa(d, st)); }}, st.status === "ajuste" ? "Editar ajuste" : "Pedir ajuste"));
+    if (st.status !== "pendente") acoes.append(el("button", {class: "btn sec", onclick: e => salvar(d, "pendente", "", e.target)}, "Desfazer"));
+  }
+  if (d.drive) acoes.append(el("a", {class: "drive", href: d.drive, target: "_blank", rel: "noopener"}, "Abrir no Drive"));
+  return el("article", {class: "dia", id: d.id},
+    el("div", {class: "dia-top"}, el("div", {}, el("h2", {}, `Dia ${d.n} · ${d.tema}`), el("div", {class: "quando"}, `${d.dia}, ${d.data}`)),
+      el("span", {class: "chip " + st.status}, rotulo(st.status))),
+    faixa, det, area, acoes);
+}
+
+function caixa(d, st) {
+  const id = "aj-" + d.id;
+  const t = el("textarea", {id, placeholder: "Ex.: story 2, trocar a frase por …"});
+  t.value = st.comentario || "";
+  const ok = el("button", {class: "btn aj", onclick: e => { const v = t.value.trim(); if (v) salvar(d, "ajuste", v, e.target); else t.focus(); }}, "Enviar ajuste");
+  setTimeout(() => t.focus(), 0);
+  return el("div", {class: "wrap", style: "gap:8px;max-width:none"}, el("label", {for: id, class: "sub", style: "margin:0"}, "O que mudar neste dia?"), t, el("div", {class: "acoes"}, ok, el("button", {class: "btn sec", onclick: render}, "Cancelar")));
+}
+
+function guardarLocal() { try { localStorage.setItem("aprov-stories", JSON.stringify(estado)); } catch (e) {} }
+
+async function salvar(d, status, comentario, botao) {
+  if (MODO === "github") {
+    if (status === "pendente") delete estado[d.id]; else estado[d.id] = {status, comentario};
+    guardarLocal(); render(); return;
+  }
+  if (botao) botao.disabled = true;
+  try {
+    await db.doc("aprovacoes/" + d.id).set({dia: d.n, status, comentario, em: new Date().toISOString()});
+  } catch (e) {
+    if (e && e.code === "invalid_argument") { podeEscrever = false; aviso("Você está só vendo esta página. Pra aprovar, peça acesso de edição ao Bruno."); }
+    else aviso("Não consegui salvar agora. Tente de novo em instantes.");
+    if (botao) botao.disabled = false;
+  }
+}
+
+function aviso(t) { const a = document.getElementById("aviso"); a.textContent = t; a.hidden = !t; }
+
+function render() {
+  filtros();
+  const box = document.getElementById("dias"); box.replaceChildren();
+  const lista = DIAS.filter(d => filtro === "todos" || ((estado[d.id] || {}).status || "pendente") === filtro);
+  if (!lista.length) box.append(el("p", {class: "sub"}, "Nenhum dia aqui."));
+  lista.forEach(d => box.append(cartao(d)));
+}
+
+function abrir(s, d) {
+  document.getElementById("zoom-img").src = s.img;
+  document.getElementById("zoom-leg").textContent = `Dia ${d.n}, story ${s.n}` + (s.dur ? ` · vídeo de ${s.dur}s (abra no Drive pra assistir)` : "");
+  document.getElementById("zoom").hidden = false;
+}
+document.getElementById("zoom").addEventListener("click", () => { document.getElementById("zoom").hidden = true; });
+document.addEventListener("keydown", e => { if (e.key === "Escape") document.getElementById("zoom").hidden = true; });
+
+function textoAjustes() {
+  const linhas = DIAS.map(d => { const s = estado[d.id]; if (!s) return null;
+    return s.status === "aprovado" ? `Dia ${d.n} (${d.data}): aprovado` : `Dia ${d.n} (${d.data}): ${s.comentario}`; }).filter(Boolean);
+  return linhas.length ? "Revisão dos stories (dias " + DIAS[0].n + " a " + DIAS[DIAS.length - 1].n + ")
+
+" + linhas.join("
+") : "";
+}
+
+if (MODO === "github") {
+  try { Object.assign(estado, JSON.parse(localStorage.getItem("aprov-stories") || "{}")); } catch (e) {}
+  const barra = document.getElementById("copiar"); barra.hidden = false;
+  document.getElementById("btn-copiar").addEventListener("click", async () => {
+    const t = textoAjustes(), msg = document.getElementById("copiar-msg");
+    if (!t) { msg.textContent = "Marque pelo menos um dia antes de copiar."; return; }
+    try { await navigator.clipboard.writeText(t); msg.textContent = "Copiado! Agora é só colar na conversa com o Claude."; }
+    catch (e) { const ta = document.getElementById("copiar-texto"); ta.hidden = false; ta.value = t; ta.select(); msg.textContent = "Selecionei o texto: copie e cole na conversa com o Claude."; }
+  });
+  document.querySelector(".sub").textContent = "Toque num story pra ver maior. Em cada dia, toque em Aprovar ou escreva o ajuste. No fim, toque em Copiar meus ajustes e cole na conversa com o Claude.";
+}
+
+render();
+
+(async () => {
+  if (MODO === "github") return;
+  const timer = setTimeout(() => aviso("As aprovações ainda não carregaram. Se continuar assim, recarregue a página."), 10000);
+  db = await claude.use("db").catch(() => null);
+  if (!db) { clearTimeout(timer); aviso("Pra aprovar, abra esta página logada no claude.ai com a conta que o Bruno compartilhou."); render(); return; }
+  try { const u = await claude.use("user"); const p = u && await u.can("data.write"); if (p === false) { podeEscrever = false; aviso("Você está só vendo esta página. Pra aprovar, peça acesso de edição ao Bruno."); } } catch (e) {}
+  db.collection("aprovacoes").onSnapshot(snap => {
+    for (const k in estado) delete estado[k];
+    snap.docs.forEach(x => { if (x.exists) estado[x.id] = x.data(); });
+    if (!snap.metadata.fromCache) { clearTimeout(timer); if (podeEscrever) aviso(""); }
+    render();
+  }, () => { clearTimeout(timer); aviso("As aprovações pararam de atualizar. Recarregue a página."); });
+  render();
+})();
+</script>
+</body></html>
